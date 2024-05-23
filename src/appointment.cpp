@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <stdio.h>
+#include <time.h>
 using namespace std;
 
 // Define a class "Appointment" to represent individual appointments
@@ -141,6 +143,18 @@ public:
     }
 };
 
+const string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+    return buf;
+}
+
 int main() {
 	// Create an instance of AppointmentManager
     AppointmentManager manager;
@@ -152,6 +166,7 @@ int main() {
 	
 	// Menu-driven loop for user interaction
     do {
+	cout << "currentDateTime()=" << currentDateTime() << endl;
         cout << "1. Book Appointment" << std::endl;
         cout << "2. Get Detail Appointment by ID" << std::endl;
         cout << "3. Show All Appointments" << std::endl;
