@@ -69,6 +69,7 @@ int main() {
                 return 0;
 
             case 1:
+                system("clear");
                 cout << "Enter the doctor's name: ";
                 cin.ignore();
                 getline(cin, name);

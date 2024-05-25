@@ -166,7 +166,7 @@ int main() {
 	
 	// Menu-driven loop for user interaction
     do {
-	cout << "currentDateTime()=" << currentDateTime() << endl;
+	cout << "Current time is:" << currentDateTime() << endl;
         cout << "1. Book Appointment" << std::endl;
         cout << "2. Get Detail Appointment by ID" << std::endl;
         cout << "3. Show All Appointments" << std::endl;
