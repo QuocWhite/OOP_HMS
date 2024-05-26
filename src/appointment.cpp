@@ -1,209 +1,179 @@
-#include <iostream>
+using namespace std;
 #include <vector>
 #include <string>
+#include <iostream>
+#include <sstream>
 #include <fstream>
-#include <stdio.h>
-#include <time.h>
-using namespace std;
 
-// Define a class "Appointment" to represent individual appointments
-class Appointment {
-private:
-	// Private member variables for appointment details
-    int id;
-    string date;
-    string time;
-    string description;
+#include "./../include/global.h"
+#include "./../include/appointment.h"
+#include "./../include/hospital.h"
 
-public:
-	// Constructor to initialize appointment details
-    Appointment(int id, const string &date, const string &time, const string &description)
-        : id(id), date(date), time(time), description(description) {}
-        
-	// Getter methods to access appointment details
-    int getId() const {
-        return id;
+appointment::appointment()
+{
+    id = -1;
+    D.id = -1;
+    P.id = -1;
+}
+appointment::~appointment()
+{
+    id = -1;
+    D.id = -1;
+    P.id = -1;
+    return;
+}
+void appointment::fillMap()
+{
+    fstream f;
+    f.open("./data/appointments.csv", ios::in);
+    string temp;
+    //skipping the first row containing column headers;
+    getline(f >> ws, temp);
+    //analyzing each entry afterwards;
+    while (getline(f >> ws, temp))
+    {
+        appointment a;
+        //creating a string stream object to read from string 'temp';
+        stringstream s(temp);
+        string s1, s2, s3, s4, s5;
+        //reading from the string stream object 's';
+        getline(s, s1, ',');
+        getline(s, s2, ','); // date is of no use here;
+        getline(s, s3, ',');
+        getline(s, s4, ',');
+        getline(s, s5, ',');
+        a.id = strToNum(s1);
+        a.D = hospital::doctorsList[strToNum(s3)];
+        a.P = hospital::patientsList[strToNum(s4)];
+        a.hh = strToNum(s5);
+        hospital::appointmentsList[a.id] = a;
     }
-
-    string getDate() const {
-        return date;
+    f.close();
+    return;
+}
+void appointment::saveMap()
+{
+    fstream f;
+    f.open("./data/temp.csv", ios::out);
+    // `le first line conataining column headers:
+    f << "appointmentId,date(YYYYMMDD),doctorId,patientId,startTime(in 24-hr format)\n";
+    for (auto i : hospital::appointmentsList)
+        f << i.second.id << "," << yyyymmdd << "," << i.second.D.id << "," << i.second.P.id
+          << "," << i.second.hh << endl;
+    f.close();
+    remove("./data/appointments.csv");
+    rename("./data/temp.csv", "./data/appointments.csv");
+    return;
+}
+void appointment::printDetails()
+{
+    if (id == -1)
+        return;
+    cout << "\n\n\nAppointment Details:\nID                 : " << id << "\n"
+         << "Patient's Name     : " + P.firstName + " " + P.lastName + "(ID = " << P.id << ")\n"
+         << "Doctor's Name      : " + D.firstName + " " + D.lastName + "(ID = " << D.id << ")\n"
+         << "Time (24 Hr format): " << hh << ":00 Hrs to " << hh + 1 << ":00 Hrs\n\n";
+    return;
+}
+void appointment::book()
+{
+    if (hospital::appointmentsList.size() >= 8 * hospital::doctorsList.size())
+    {
+        cout << "\n\nSorry, no doctor is available for appointment today!\n\n";
+        return;
     }
-
-    string getTime() const {
-        return time;
+    cout << "\n\nIs the patient already registered (Y : Yes || N : No)?\n";
+    char ans;
+    cin >> ans;
+    while (ans != 'Y' && ans != 'N')
+    {
+        cout << "Y or N?\n";
+        cin >> ans;
     }
-
-    string getDescription() const {
-        return description;
+    if (ans == 'N')
+    {
+        cout << "Register the patient:\n";
+        P.adduser();
     }
-	// Method to display appointment details
-    void showDetail() const {
-        cout << "ID: " << id << ", Date: " << date << ", Time: " << time << ", Description: " << description << endl;
-    }
-	// Method to save appointment details to a file
-    void saveToFile(ofstream &outFile) const {
-        outFile << id << endl;
-        outFile << date << endl;
-        outFile << time << endl;
-        outFile << description << endl;
-    }
-
-	// Static method to load appointment details from a file
-    static Appointment loadFromFile(ifstream &inFile) {
-        int id;
-        string date, time, description;
-        inFile >> id;
-        inFile.ignore();  
-        getline(inFile, date);
-        getline(inFile, time);
-        getline(inFile, description);
-        return Appointment(id, date, time, description);
-    }
-};
-	// Define a class "AppointmentManager" to manage a collection of appointments
-class AppointmentManager {
-private:
-	// Private member variables for appointment management
-    vector<Appointment> appointments;
-    const string filename = "appointments.txt";  
-
-public:
-	// Constructor to load appointments from file when instantiated
-    AppointmentManager() {
-        loadAppointmentsFromFile();
-    }
-	// Method to check if appointment ID already exists
-    bool isIdExists(int id) const {
-        for (const auto &appointment : appointments) {
-            if (appointment.getId() == id) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-	// Method to book a new appointment
-    void bookAppointment(int id, const string &date, const string &time, const string &description) {
-        if (isIdExists(id)) {
-            cout << "Appointment with ID " << id << " already exists. Please choose a different ID." <<endl;
-            return;
-        }
-        Appointment newAppointment(id, date, time, description);
-        appointments.push_back(newAppointment);
-
-        ofstream outFile(filename, ios::app);  
-        if (outFile.is_open()) {
-            newAppointment.saveToFile(outFile);
-            outFile.close();
-        }
-        std::cout << "Appointment booked successfully with ID: " << newAppointment.getId() << std::endl;
-    }
-
-	// Method to retrieve and display appointment details by ID
-    void getDetailAppointment(int id) const {
-        ifstream inFile(filename);
-        if (inFile.is_open()) {
-            while (!inFile.eof()) {
-                Appointment appointment = Appointment::loadFromFile(inFile);
-                if (appointment.getId() == id) {
-                    appointment.showDetail();
-                    inFile.close();
-                    return;
+    else
+    {
+        cout << "Search for the required patient:\n\n";
+        ans = 'Y';
+        while (ans == 'Y')
+        {
+            P.getDetails();
+            ans = 'K';
+            if (P.id == -1)
+            {
+                cout << "Try again (Y : Yes || N : No)?\n";
+                cin >> ans;
+                while (ans != 'Y' && ans != 'N')
+                {
+                    cout << "Y or N?\n";
+                    cin >> ans;
                 }
             }
-            inFile.close();
         }
-        cout << "Appointment not found." << endl;
+        if (ans == 'N')
+        {
+            return;
+        }
     }
-	
-	// Method to display details of all appointments
-    void showAllAppointments() const {
-        ifstream inFile(filename);
-        if (inFile.is_open()) {
-            while (!inFile.eof()) {
-                Appointment appointment = Appointment::loadFromFile(inFile);
-                appointment.showDetail();
+    cout << "\n\nNow, search for the required doctor:\n";
+    ans = 'Y';
+    while (ans == 'Y')
+    {
+        D.getDetails();
+        ans = 'K';
+        if (D.id == -1)
+        {
+            cout << "Try again (Y : Yes || N : No)?\n";
+            cin >> ans;
+            while (ans != 'Y' && ans != 'N')
+            {
+                cout << "Y or N?\n";
+                cin >> ans;
             }
-            inFile.close();
-        } else {
-            cout << "No appointments available." << endl;
         }
-    }
-	
-	// Method to load appointments from file
-    void loadAppointmentsFromFile() {
-        ifstream inFile(filename);
-        if (inFile.is_open()) {
-            while (!inFile.eof()) {
-                Appointment appointment = Appointment::loadFromFile(inFile);
-                appointments.push_back(appointment);
+        else if (D.appointmentsBooked >= 8)
+        {
+            cout << "Sorry, selected doctor has no free slot left for the day!\n";
+            cout << "Search again (Y : Yes || N : No)?\n";
+            cin >> ans;
+            while (ans != 'Y' && ans != 'N')
+            {
+                cout << "Y or N?\n";
+                cin >> ans;
             }
-            inFile.close();
         }
     }
-};
+    if (ans == 'N')
+    {
+        return;
+    }
+    if (hospital::appointmentsList.rbegin() != hospital::appointmentsList.rend())
+        id = ((hospital::appointmentsList.rbegin())->first) + 1;
+    else
+        id = 1;
+    hh = 9 + D.appointmentsBooked;
+    hospital::appointmentsList[id] = *this;
 
-const string currentDateTime() {
-    time_t     now = time(0);
-    struct tm  tstruct;
-    char       buf[80];
-    tstruct = *localtime(&now);
-    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
-    // for more information about date/time format
-    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
-
-    return buf;
+    hospital::doctorsList[D.id].appointmentsBooked++;
+    cout << "\nAppointment of patient " + P.firstName + " " + P.lastName + " with doctor "
+         << D.firstName << " " << D.lastName << " booked successfully!\n";
+    printDetails();
+    return;
 }
-
-int main() {
-	// Create an instance of AppointmentManager
-    AppointmentManager manager;
-	
-	// Variables to store user input and choice
-    int choice;
-    string date, time, description;
-    int id;
-	
-	// Menu-driven loop for user interaction
-    do {
-	cout << "Current time is:" << currentDateTime() << endl;
-        cout << "1. Book Appointment" << std::endl;
-        cout << "2. Get Detail Appointment by ID" << std::endl;
-        cout << "3. Show All Appointments" << std::endl;
-        cout << "4. Exit" << std::endl;
-        cout << "Enter your choice: ";
-        cin >> choice;
-        cin.ignore();  
-
-        switch (choice) {
-            case 1:
-                cout << "Enter appointment ID: ";
-                cin >> id;
-                cin.ignore();  
-                cout << "Enter date (YYYY-MM-DD): ";
-                getline(cin, date);
-                cout << "Enter time (HH:MM): ";
-                getline(cin, time);
-                cout << "Enter description: ";
-                getline(cin, description);
-                manager.bookAppointment(id, date, time, description);
-                break;
-            case 2:
-                cout << "Enter appointment ID: ";
-                cin >> id;
-                cin.ignore();  
-                manager.getDetailAppointment(id);
-                break;
-            case 3:
-                manager.showAllAppointments();
-                break;
-            case 4:
-                cout << "Exiting..." << endl;
-                break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
-        }
-    } while (choice != 4);
-
-    return 0;
+void appointment::getDetails()
+{
+    cout << "\nEnter appointment ID:\n";
+    cin >> id;
+    if (hospital::appointmentsList.find(id) == hospital::appointmentsList.end())
+    {
+        cout << "\nInvalid appointment ID!\n";
+        id = -1;
+        return;
+    }
+    *this = hospital::appointmentsList[id];
+    return;
 }

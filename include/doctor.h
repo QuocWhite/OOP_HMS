@@ -3,10 +3,10 @@
 using namespace std;
 #include <string>
 
-#include "./person.h"
+#include "./user.h"
 
 class appointment;
-class doctor : public person
+class doctor : public user
 {
 private:
     string type;
@@ -17,11 +17,11 @@ public:
     doctor();
     void fillMap();
     void saveMap();
-    void addPerson();
+    void adduser();
     void printDetails();
     void printDetailsFromHistory(string extraDetails = "");
     void getDetails(int rec = 0);
     void getDetailsFromHistory();
-    void removePerson();
+    void removeuser();
 };
 #endif 

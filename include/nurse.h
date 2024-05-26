@@ -3,9 +3,9 @@
 using namespace std;
 #include <string>
 
-#include "./person.h"
+#include "./user.h"
 
-class nurse : public person
+class nurse : public user
 {
 private:
     string type;
@@ -14,11 +14,11 @@ public:
     nurse();
     void fillMap();
     void saveMap();
-    void addPerson();
+    void adduser();
     void printDetails();
     void printDetailsFromHistory(string extraDetails = "");
     void getDetails(int rec = 0);
     void getDetailsFromHistory();
-    void removePerson();
+    void removeuser();
 };
 #endif 
