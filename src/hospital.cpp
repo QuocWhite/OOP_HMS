@@ -25,14 +25,8 @@ const int hospital::nursesLimit = 50;
 const int hospital::driversLimit = 30;
 const int hospital::ambulancesLimit = 30;
 const int hospital::appointmentsLimit = 240; //per day;
-// ummm, patients limit, ummm, no!
-// appointments limit is kind of a patients limit;
-// rest hospitalized patients limit must be equal to;
-// number of available rooms, maybe I'll add this;
-// feature some other day in the future;
-// not feeling like doing it right now!
 
-//defining already declared methods;
+
 
 void hospital::printDoctors()
 {

@@ -482,10 +482,3 @@ void patient::removeuser()
     cout << firstName << " " << lastName << " discharged!\n";
     return;
 }
-
-// Removing a patient: it's rather "DISCHARGING a HOSPITALIZED patient";
-// If a patient wasn't hospitalized, just came to the hospital for an appointment with;
-// a doctor then that appointment object will be cleared on the next day automatically;
-// and there's no need of removing the patient's record from patients.csv in that case;
-
-// Maybe consider this as a kind of limitation of this system;

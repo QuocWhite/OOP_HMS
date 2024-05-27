@@ -67,6 +67,7 @@ void appointment::saveMap()
 }
 void appointment::printDetails()
 {
+    system("clear");
     if (id == -1)
         return;
     cout << "\n\n\nAppointment Details:\nID                 : " << id << "\n"
@@ -77,6 +78,7 @@ void appointment::printDetails()
 }
 void appointment::book()
 {
+    system("clear");
     if (hospital::appointmentsList.size() >= 8 * hospital::doctorsList.size())
     {
         cout << "\n\nSorry, no doctor is available for appointment today!\n\n";
@@ -166,6 +168,7 @@ void appointment::book()
 }
 void appointment::getDetails()
 {
+    system("clear");
     cout << "\nEnter appointment ID:\n";
     cin >> id;
     if (hospital::appointmentsList.find(id) == hospital::appointmentsList.end())

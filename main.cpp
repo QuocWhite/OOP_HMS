@@ -36,9 +36,9 @@ void appointmentsMenu()
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "\nSelect an option:\n\n";
 
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "\tAPPOINTMENT MENU\n";
-        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "[1] : Book an appointment\n";
         cout << "[2] : Get appointment details\n";
         cout << "[3] : Show all appointments\n\n";
@@ -89,6 +89,7 @@ void appointmentsMenu()
 
 void patientsMenu()
 {
+    b:
     system("clear");
     bool exit = false;
     while (!exit)
@@ -98,7 +99,7 @@ void patientsMenu()
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "./HOME/PATIENTS\n";
+        cout << "\tPATIENT MENU\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "[1] : Register a new patient\n";
         cout << "[2] : Get patient details\n";
@@ -154,7 +155,11 @@ void patientsMenu()
         }
         else
         {
-            cout << "Invalid choice!\n";
+            cout << "Invalid choice! Please try again.\n";
+            sleep(1);
+            cin.clear();
+            system("clear");
+            goto b;
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
@@ -170,6 +175,7 @@ void patientsMenu()
 
 void doctorsMenu()
 {
+    c:
     system("clear");
     bool exit = false;
     while (!exit)
@@ -179,7 +185,7 @@ void doctorsMenu()
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "./HOME/DOCTORS\n";
+        cout << "\tDOCTOR MENU\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "[1] : Register a new doctor\n";
         cout << "[2] : Get doctor details\n";
@@ -223,7 +229,11 @@ void doctorsMenu()
         }
         else
         {
-            cout << "Invalid choice!\n";
+            cout << "Invalid choice! Please try again.\n";
+            sleep(1);
+            cin.clear();
+            system("clear");
+            goto c;
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
@@ -239,6 +249,7 @@ void doctorsMenu()
 
 void nursesMenu()
 {
+    d:
     system("clear");
     bool exit = false;
     while (!exit)
@@ -292,7 +303,11 @@ void nursesMenu()
         }
         else
         {
-            cout << "Invalid choice!\n";
+            cout << "Invalid choice! Please try again.\n";
+            sleep(1);
+            cin.clear();
+            system("clear");
+            goto d;
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
@@ -308,6 +323,7 @@ void nursesMenu()
 
 void driversMenu()
 {
+    e:
     system("clear");
     bool exit = false;
     while (!exit)
@@ -361,7 +377,11 @@ void driversMenu()
         }
         else
         {
-            cout << "Invalid choice!\n";
+            cout << "Invalid choice! Please try again.\n";
+            sleep(1);
+            cin.clear();
+            system("clear");
+            goto e;
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
@@ -377,6 +397,7 @@ void driversMenu()
 
 void ambulancesMenu()
 {
+    f:
     system("clear");
     bool exit = false;
     while (!exit)
@@ -442,7 +463,11 @@ void ambulancesMenu()
         }
         else
         {
-            cout << "Invalid choice!\n";
+            cout << "Invalid choice! Please try again.\n";
+            sleep(1);
+            cin.clear();
+            system("clear");
+            goto f;
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
@@ -458,7 +483,7 @@ void ambulancesMenu()
 
 int main()
 {
-    fstream f;
+    /*fstream f;
     f.open("./data/appointments.csv", ios::in);
     string temp, s, header;
     getline(f, header);
@@ -514,7 +539,7 @@ int main()
         cout << "\nEntered date detected wrong!\nToday's date can't be older than the last usage date, which is : "
              << s.substr(6, 2) + "-" + s.substr(4, 2) + "-" + s.substr(0, 4) + "\n";
         return 0;
-    }
+    }*/
     // filling maps with data from csv files;
     {
         doctor d1;

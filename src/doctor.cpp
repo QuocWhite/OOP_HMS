@@ -100,6 +100,7 @@ void doctor::adduser()
 }
 void doctor::printDetails()
 {
+    system("clear");
     if (id == -1)
         return;
     user::printDetails();
@@ -109,6 +110,7 @@ void doctor::printDetails()
 }
 void doctor::printDetailsFromHistory(string extraDetails)
 {
+    system("clear");
     if (id == -1)
         return;
     user::printDetailsFromHistory();
@@ -156,6 +158,7 @@ void doctor::printDetailsFromHistory(string extraDetails)
 }
 void doctor::getDetails(int rec)
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by ID\n[2]: Filter by Name\n[3]: Filter by Type\n\n";
     cin >> opt;
@@ -248,6 +251,7 @@ void doctor::getDetails(int rec)
 }
 void doctor::getDetailsFromHistory()
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by Name\n[2]: Filter by Type\n\n";
     cin >> opt;
@@ -351,6 +355,7 @@ void doctor::getDetailsFromHistory()
 }
 void doctor::removeuser()
 {
+    system("clear");
     cout << "\nSearch for the doctor you want to remove.\n";
     getDetails();
     if (id == -1)
