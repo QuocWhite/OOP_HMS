@@ -55,7 +55,6 @@ void driver::saveMap()
 {
     fstream f;
     f.open("./data/temp.csv", ios::out);
-    // `le first line conataining column headers:
     f << "driverId,firstName,lastName,gender,age,mobNumber,address,licenseNumber,idle?\n";
     for (auto i : hospital::driversList)
         f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
@@ -73,9 +72,9 @@ void driver::adduser()
         cout << "\n\nDrivers limit reached, can't add more!\n\n";
         return;
     }
-    //18 and 65 are the age limits for registration of a new driver;
-    user::adduser(18, 65);
-    if ((age < 18) || (age > 65))
+    //28 and 65 are the age limits for registration of a new driver;
+    user::adduser(28, 65);
+    if ((age < 28) || (age > 65))
         return;
     cout << "\nEnter the license number of the driver: \n";
     getline(cin >> ws, licenseNumber);
@@ -85,9 +84,8 @@ void driver::adduser()
         id = 1;
     hospital::driversList[id] = *this;
 
-    //creating a fstream object to read/write from/to files;
     fstream f;
-    //creating a record in driversHistory.csv;
+
     f.open("./data/driversHistory.csv", ios::app);
     f << firstName << "," << lastName << "," << gender << "," << age << "," << mobNumber << "," << add.addToStr() << "," << licenseNumber << ",N,NA" << endl;
     f.close();

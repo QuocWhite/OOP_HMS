@@ -70,9 +70,9 @@ void nurse::adduser()
         cout << "\n\nNurses limit reached, can't add more!\n\n";
         return;
     }
-    //18 and 65 are the age limits for registration of a new nurse;
-    user::adduser(18, 65);
-    if ((age < 18) || (age > 65))
+    //28 and 65 are the age limits for registration of a new nurse;
+    user::adduser(28, 65);
+    if ((age < 28) || (age > 65))
         return;
     cout << "\nEnter the type of the nurse: \n";
     getline(cin >> ws, type);
