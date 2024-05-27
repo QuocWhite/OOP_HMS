@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <unistd.h> 
 #include <ios>    //used to get stream size
 #include <limits> //used to get numeric limits
 using namespace std;
@@ -26,6 +27,8 @@ void ambulancesMenu();
 
 void appointmentsMenu()
 {
+    a:
+    system("clear");
     bool exit = false;
     while (!exit)
     {
@@ -34,12 +37,12 @@ void appointmentsMenu()
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "./HOME/APPOINTMENTS\n";
+        cout << "\tAPPOINTMENT MENU\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "[01] : Book an appointment\n";
-        cout << "[02] : Get appointment details\n";
-        cout << "[03] : Show all appointments\n\n";
-        cout << "[-1] : Back\n";
+        cout << "[1] : Book an appointment\n";
+        cout << "[2] : Get appointment details\n";
+        cout << "[3] : Show all appointments\n\n";
+        cout << "[0] : Back\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
@@ -59,14 +62,18 @@ void appointmentsMenu()
         {
             hospital::printAppointments();
         }
-        else if (purpose == -1)
+        else if (purpose == 0)
         {
             exit = true;
             break;
         }
         else
         {
-            cout << "Invalid choice!\n";
+            cout << "Invalid choice! Please try again.\n";
+            sleep(1);
+            cin.clear();
+            system("clear");
+            goto a;
         }
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
@@ -82,6 +89,7 @@ void appointmentsMenu()
 
 void patientsMenu()
 {
+    system("clear");
     bool exit = false;
     while (!exit)
     {
@@ -92,14 +100,14 @@ void patientsMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "./HOME/PATIENTS\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "[01] : Register a new patient\n";
-        cout << "[02] : Get patient details\n";
-        cout << "[03] : Hospitalize a registered patient\n";
-        cout << "[04] : Report a patient's death\n";
-        cout << "[05] : Discharge a patient or their body\n";
-        cout << "[06] : Fetch patient details from history\n";
-        cout << "[07] : Get details of all registered patients\n\n";
-        cout << "[-1] : Back\n";
+        cout << "[1] : Register a new patient\n";
+        cout << "[2] : Get patient details\n";
+        cout << "[3] : Hospitalize a registered patient\n";
+        cout << "[4] : Report a patient's death\n";
+        cout << "[5] : Discharge a patient or their body\n";
+        cout << "[6] : Fetch patient details from history\n";
+        cout << "[7] : Get details of all registered patients\n\n";
+        cout << "[0] : Back\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
@@ -139,7 +147,7 @@ void patientsMenu()
         {
             hospital::printPatients();
         }
-        else if (purpose == -1)
+        else if (purpose == 0)
         {
             exit = true;
             break;
@@ -162,6 +170,7 @@ void patientsMenu()
 
 void doctorsMenu()
 {
+    system("clear");
     bool exit = false;
     while (!exit)
     {
@@ -172,12 +181,12 @@ void doctorsMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "./HOME/DOCTORS\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "[01] : Register a new doctor\n";
-        cout << "[02] : Get doctor details\n";
-        cout << "[03] : Remove a doctor\n";
-        cout << "[04] : Fetch doctor details from history\n";
-        cout << "[05] : Get details of all registered doctors\n\n";
-        cout << "[-1] : Back\n";
+        cout << "[1] : Register a new doctor\n";
+        cout << "[2] : Get doctor details\n";
+        cout << "[3] : Remove a doctor\n";
+        cout << "[4] : Fetch doctor details from history\n";
+        cout << "[5] : Get details of all registered doctors\n\n";
+        cout << "[0] : Back\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
@@ -207,7 +216,7 @@ void doctorsMenu()
         {
             hospital::printDoctors();
         }
-        else if (purpose == -1)
+        else if (purpose == 0)
         {
             exit = true;
             break;
@@ -230,6 +239,7 @@ void doctorsMenu()
 
 void nursesMenu()
 {
+    system("clear");
     bool exit = false;
     while (!exit)
     {
@@ -240,12 +250,12 @@ void nursesMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "./HOME/NURSES\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "[01] : Register a new nurse\n";
-        cout << "[02] : Get nurse details\n";
-        cout << "[03] : Remove a nurse\n";
-        cout << "[04] : Fetch nurse details from history\n";
-        cout << "[05] : Get details of all registered nurses\n\n";
-        cout << "[-1] : Back\n";
+        cout << "[1] : Register a new nurse\n";
+        cout << "[2] : Get nurse details\n";
+        cout << "[3] : Remove a nurse\n";
+        cout << "[4] : Fetch nurse details from history\n";
+        cout << "[5] : Get details of all registered nurses\n\n";
+        cout << "[0] : Back\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
@@ -275,7 +285,7 @@ void nursesMenu()
         {
             hospital::printNurses();
         }
-        else if (purpose == -1)
+        else if (purpose == 0)
         {
             exit = true;
             break;
@@ -298,6 +308,7 @@ void nursesMenu()
 
 void driversMenu()
 {
+    system("clear");
     bool exit = false;
     while (!exit)
     {
@@ -308,12 +319,12 @@ void driversMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "./HOME/DRIVERS\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "[01] : Register a new driver\n";
-        cout << "[02] : Get driver details\n";
-        cout << "[03] : Remove a driver\n";
-        cout << "[04] : Fetch driver details from history\n";
-        cout << "[05] : Get details of all registered drivers\n\n";
-        cout << "[-1] : Back\n";
+        cout << "[1] : Register a new driver\n";
+        cout << "[2] : Get driver details\n";
+        cout << "[3] : Remove a driver\n";
+        cout << "[4] : Fetch driver details from history\n";
+        cout << "[5] : Get details of all registered drivers\n\n";
+        cout << "[0] : Back\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
@@ -343,7 +354,7 @@ void driversMenu()
         {
             hospital::printDrivers();
         }
-        else if (purpose == -1)
+        else if (purpose == 0)
         {
             exit = true;
             break;
@@ -366,6 +377,7 @@ void driversMenu()
 
 void ambulancesMenu()
 {
+    system("clear");
     bool exit = false;
     while (!exit)
     {
@@ -376,14 +388,14 @@ void ambulancesMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "./HOME/AMBULANCES\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "[01] : Add an ambulance\n";
-        cout << "[02] : Send an ambulance\n";
-        cout << "[03] : Get ambulance details\n";
-        cout << "[04] : Report ambulance arrival\n";
-        cout << "[05] : Remove an ambulance\n";
-        cout << "[06] : Fetch ambulance details from history\n";
-        cout << "[07] : Get details of all registered ambulances\n\n";
-        cout << "[-1] : Back\n";
+        cout << "[1] : Add an ambulance\n";
+        cout << "[2] : Send an ambulance\n";
+        cout << "[3] : Get ambulance details\n";
+        cout << "[4] : Report ambulance arrival\n";
+        cout << "[5] : Remove an ambulance\n";
+        cout << "[6] : Fetch ambulance details from history\n";
+        cout << "[7] : Get details of all registered ambulances\n\n";
+        cout << "[0] : Back\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
@@ -423,7 +435,7 @@ void ambulancesMenu()
         {
             hospital::printAmbulances();
         }
-        else if (purpose == -1)
+        else if (purpose == 0)
         {
             exit = true;
             break;
@@ -530,19 +542,19 @@ int main()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "./HOME\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "[01] : APPOINTMENTS\n";
-        cout << "[02] : PATIENTS\n";
-        cout << "[03] : DOCTORS\n";
-        cout << "[04] : NURSES\n";
-        cout << "[05] : DRIVERS\n";
-        cout << "[06] : AMBULANCES\n\n";
-        cout << "[-1] : EXIT\n";
+        cout << "[1] : APPOINTMENTS\n";
+        cout << "[2] : PATIENTS\n";
+        cout << "[3] : DOCTORS\n";
+        cout << "[4] : NURSES\n";
+        cout << "[5] : DRIVERS\n";
+        cout << "[6] : AMBULANCES\n\n";
+        cout << "[0] : EXIT\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> category;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "\n";
-        if (category == -1)
+        if (category == 0)
         {
             cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
             cout << "\nShutting Down System...\n";

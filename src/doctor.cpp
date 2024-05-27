@@ -1,198 +1,394 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
 using namespace std;
+#include <vector>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <fstream>
 
-class Doctor {
-private:
-    string name;
-    int age;
-    string phoneNumber;
-    bool hasAppointment;
-    bool hasWorked;
+#include "./../include/global.h"
+#include "./../include/doctor.h"
+#include "./../include/hospital.h"
 
-public:
-    Doctor(string name, int age, string phoneNumber)
-        : name(name), age(age), phoneNumber(phoneNumber), hasAppointment(false), hasWorked(false) {}
-
-    string getName() const {
-        return name;
+doctor::doctor()
+{
+    id = -1;
+    type = "";
+    appointmentsBooked = 0;
+    cat = "doctor";
+    category = 1;
+}
+void doctor::fillMap()
+{
+    fstream f;
+    f.open("./data/doctors.csv", ios::in);
+    string temp;
+    //skipping the first row containing column headers;
+    getline(f >> ws, temp);
+    //analyzing each entry afterwards;
+    while (getline(f >> ws, temp))
+    {
+        doctor d;
+        //creating a string stream object to read from string 'temp';
+        stringstream s(temp);
+        string s1, s4, s5, s7, s9;
+        //reading from the string stream object 's';
+        getline(s, s1, ',');
+        getline(s, d.firstName, ',');
+        getline(s, d.lastName, ',');
+        getline(s, s4, ',');
+        getline(s, s5, ',');
+        getline(s, d.mobNumber, ',');
+        getline(s, s7, ',');
+        getline(s, d.type, ',');
+        getline(s, s9, ',');
+        d.id = strToNum(s1);
+        d.gender = s4[0];
+        d.age = strToNum(s5);
+        d.add.strToAdd(s7);
+        d.appointmentsBooked = strToNum(s9);
+        hospital::doctorsList[d.id] = d;
     }
-
-    void AddAppointment() {
-        hasAppointment = true;
-        cout << "Added appointment schedule for doctor " << name << endl;
+    f.close();
+    return;
+}
+void doctor::saveMap()
+{
+    fstream f;
+    f.open("./data/temp.csv", ios::out);
+    // `le first line conataining column headers:
+    f << "doctorId,firstName,lastName,gender,age,mobNumber,address,type,appointmentsBooked\n";
+    for (auto i : hospital::doctorsList)
+        f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
+          << "," << i.second.age << "," << i.second.mobNumber << "," << i.second.add.addToStr()
+          << "," << i.second.type << "," << i.second.appointmentsBooked << endl;
+    f.close();
+    remove("./data/doctors.csv");
+    rename("./data/temp.csv", "./data/doctors.csv");
+    return;
+}
+void doctor::adduser()
+{
+    if (hospital::doctorsList.size() == hospital::doctorsLimit)
+    {
+        cout << "\n\nDoctors limit reached, can't add more!\n\n";
+        return;
     }
+    //18 and 65 are the age limits for registration of a new doctor;
+    user::adduser(18, 65);
+    if ((age < 18) || (age > 65))
+        return;
+    cout << "\nEnter the type of the doctor: \n";
+    getline(cin >> ws, type);
+    if (hospital::doctorsList.rbegin() != hospital::doctorsList.rend())
+        id = ((hospital::doctorsList.rbegin())->first) + 1;
+    else
+        id = 1;
+    hospital::doctorsList[id] = *this;
 
-    void RemoveAppointment() {
-        hasAppointment = false;
-        cout << "Deleted doctor's appointment " << name << endl;
+    //creating a fstream object to read/write from/to files;
+    fstream f;
+    //creating a record in doctorsHistory.csv;
+    f.open("./data/doctorsHistory.csv", ios::app);
+    f << firstName << "," << lastName << "," << gender << "," << age << "," << mobNumber << "," << add.addToStr() << "," << type << ",N,NA" << endl;
+    f.close();
+
+    cout << "\n"
+         << firstName << " " << lastName << " registered successfully!\n";
+    cout << "Their ID is: " << id << "\n";
+
+    return;
+}
+void doctor::printDetails()
+{
+    if (id == -1)
+        return;
+    user::printDetails();
+    cout << "Type            : " << type << "\n";
+    cout << "Appointments    : " << appointmentsBooked << "/8 (appointments booked today)\n";
+    return;
+}
+void doctor::printDetailsFromHistory(string extraDetails)
+{
+    if (id == -1)
+        return;
+    user::printDetailsFromHistory();
+    stringstream k(extraDetails);
+    string s1, s2;
+    getline(k, s1, ',');
+    getline(k, s2, ',');
+    if (extraDetails == "")
+    {
+        fstream f;
+        f.open("./data/doctorsHistory.csv", ios::in);
+        string temp;
+        //skipping the first row containing column headers;
+        getline(f >> ws, temp);
+        //analyzing each entry afterwards;
+        while (getline(f >> ws, temp))
+        {
+            doctor d;
+            //creating a string stream object to read from string 'temp';
+            stringstream s(temp);
+            string s4, s5, s7;
+            //reading from the string stream object 's';
+            getline(s, d.firstName, ',');
+            getline(s, d.lastName, ',');
+            getline(s, s4, ',');
+            getline(s, s5, ',');
+            getline(s, d.mobNumber, ',');
+
+            if (d.firstName == firstName && d.lastName == lastName && d.mobNumber == mobNumber)
+            {
+
+                getline(s, s7, ',');
+                getline(s, d.type, ',');
+                getline(s, s1, ',');
+                getline(s, s2, ',');
+            }
+        }
+        f.close();
     }
-
-    void SetWorkedStatus(bool status) {
-        hasWorked = status;
-        cout << "Updated the doctor's working status " << name << endl;
+    cout << "Type            : " << type << "\n";
+    cout << "Left Work?      : " << s1 << "\n";
+    if (s1 == "Y")
+        cout << "Reason          : " << s2 << "\n";
+    return;
+}
+void doctor::getDetails(int rec)
+{
+    int opt = 0;
+    cout << "\nOPTIONS:\n[1]: Filter by ID\n[2]: Filter by Name\n[3]: Filter by Type\n\n";
+    cin >> opt;
+    while (opt != 1 && opt != 2 && opt != 3)
+        cout << "option 1, 2 or 3?\n", cin >> opt;
+    //1: Filter by ID;
+    if (opt == 1)
+    {
+        int reqId;
+        cout << "\nEnter ID:\n";
+        cin >> reqId;
+        if (hospital::doctorsList.find(reqId) != hospital::doctorsList.end())
+            *this = hospital::doctorsList[reqId];
+        else
+            cout << "\nNo matching record found!\n";
     }
-
-    void DisplayInfo() {
-        cout << "Doctor's information:" << endl;
-        cout << "Name: " << name << endl;
-        cout << "Age: " << age << endl;
-        cout << "The phone number: " << phoneNumber << endl;
-        cout << "Appointment schedule: " << (hasAppointment ? "Yes" : "No") << endl;
-        cout << "Used to work at a hospital: " << (hasWorked ? "Yes" : "No") << endl;
-    }
-};
-
-int main() {
-    string name, phoneNumber;
-    int age;
-    vector<Doctor> doctors;
-
-    while (true) {
-        cout << "===== Hospital Management System =====" << endl;
-        cout << "1. Add doctor" << endl;
-        cout << "2. Delete doctor" << endl;
-        cout << "3. Display doctor information" << endl;
-        cout << "4. Add an appointment to your doctor" << endl;
-        cout << "5. Delete doctor's appointment" << endl;
-        cout << "6. Update the doctor's working status" << endl;
-        cout << "0. Exit the program" << endl;
-        cout << "Please select an option: ";
-        int choice;
-        cin >> choice;
-
-        switch (choice) {
-            case 0:
-                cout << "Program exited." << endl;
-                return 0;
-
-            case 1:
-                system("clear");
-                cout << "Enter the doctor's name: ";
-                cin.ignore();
-                getline(cin, name);
-                cout << "Enter age: ";
-                cin >> age;
-                cout << "Enter the phone number: ";
-                cin.ignore();
-                getline(cin, phoneNumber);
-
-                doctors.push_back(Doctor(name, age, phoneNumber));
-                cout << "Doctor added successfully!" << endl;
-                break;
-
-            case 2:
-                if (doctors.empty()) {
-                    cout << "There is no doctor to remove." << endl;
-                } else {
-                    cout << "List of doctors:" << endl;
-                    for (int i = 0; i < doctors.size(); ++i) {
-                        cout << i + 1 << ". " << doctors[i].getName() << endl;
-                    }
-                    cout << "Please select the doctor's order number to delete: ";
-                    int index;
-                    cin >> index;
-
-                    if (index >= 1 && index <= doctors.size()) {
-                        doctors.erase(doctors.begin() + index - 1);
-                        cout << "Doctor successfully deleted!" << endl;
-                    } else {
-                        cout << "Invalid order number." << endl;
-                    }
+    //2: Filter by name;
+    else if (opt == 2)
+    {
+        string reqFName, reqLName;
+        cout << "First Name:\n";
+        getline(cin >> ws, reqFName);
+        cout << "\nLast Name:\n";
+        getline(cin, reqLName);
+        vector<doctor> matchingRecords;
+        for (auto i : hospital::doctorsList)
+        {
+            if (i.second.firstName == reqFName && i.second.lastName == reqLName)
+                matchingRecords.push_back(i.second);
+        }
+        cout << "\n";
+        cout << matchingRecords.size() << " matching record(s) found!\n";
+        for (auto i : matchingRecords)
+            i.printDetails();
+        char tt = 'N';
+        if (matchingRecords.size() > rec)
+        {
+            do
+            {
+                int reqId;
+                cout << "\nEnter the ID of the required doctor: ";
+                cin >> reqId;
+                if (hospital::doctorsList.find(reqId) != hospital::doctorsList.end())
+                    *this = hospital::doctorsList[reqId];
+                else
+                {
+                    cout << "\nInvalid ID!\nTry again? (Y = Yes || N = No)\n";
+                    cin >> tt;
+                    while (tt != 'Y' || tt != 'N')
+                        cout << "Y or N?\n", cin >> tt;
                 }
-                break;
-
-            case 3:
-                if (doctors.empty()) {
-                    cout << "There are no doctors to show." << endl;
-                } else {
-                    cout << "List of doctors" << endl;
-                    for (int i = 0; i < doctors.size(); ++i) {
-                        cout << i + 1 << ". " << doctors[i].getName() << endl;
-                    }
-                    cout << "Please select a doctor's order number to display information: ";
-                    int index;
-                    cin >> index;
-
-                    if (index >= 1 && index <= doctors.size()) {
-                        doctors[index - 1].DisplayInfo();
-                    } else {
-                        cout << "Invalid order number." << endl;
-                    }
-                }
-                break;
-
-            case 4:
-                if (doctors.empty()) {
-                    cout << "There is no doctor to add an appointment." << endl;
-                } else {
-                    cout << "List of doctor:" << endl;
-                    for (int i = 0; i < doctors.size(); ++i) {
-                        cout << i + 1 << ". " << doctors[i].getName() << endl;
-                    }
-                    cout << "Please select your doctor's order number to add an appointment: ";
-                    int index;
-                    cin >> index;
-
-                    if (index >= 1 && index <= doctors.size()) {
-                        doctors[index - 1].AddAppointment();
-                    } else {
-                        cout << "Invalid order number." << endl;
-                    }
-                }
-                break;
-
-            case 5:
-                if (doctors.empty()) {
-                    cout << "There is no doctor to clear appointments." << endl;
-                } else {
-                    cout << "List of doctor:" << endl;
-                    for (int i = 0; i < doctors.size(); ++i) {
-                        cout << i + 1 << ". " << doctors[i].getName() << endl;
-                    }
-                    cout << "Please select the doctor's order number to delete the appointment: ";
-                    int index;
-                    cin >> index;
-
-                    if (index >= 1 && index <= doctors.size()) {
-                        doctors[index - 1].RemoveAppointment();
-                    } else {
-                        cout << "Invalid order number." << endl;
-                    }
-                }
-                break;
-
-            case 6:
-                if (doctors.empty()) {
-                    cout << "There is no doctor to update work status." << endl;
-                } else {
-                    cout << "List of doctor:" << endl;
-                    for (int i = 0; i < doctors.size(); ++i) {
-                        cout << i + 1 << ". " << doctors[i].getName() << endl;
-                    }
-                    cout << "Please select your doctor's order number to update your working status: ";
-                    int index;
-                    cin >> index;
-
-                    if (index >= 1 && index <= doctors.size()) {
-                        cout << "Enter working status (1: Yes, 0: No): ";
-                        int status;
-                        cin >> status;
-                        doctors[index - 1].SetWorkedStatus(status == 1);
-                    } else {
-                        cout << "Invalid order number." << endl;
-                    }
-                }
-                break;
-
-            default:
-                cout << "Invalid selection. Please select again." << endl;
-                break;
+            } while (tt == 'Y');
         }
     }
-    
+    //3: Filter by type;
+    else if (opt == 3)
+    {
+        string reqType;
+        cout << "Enter the type of doctor required:\n";
+        getline(cin >> ws, reqType);
+        vector<doctor> matchingRecords;
+        for (auto i : hospital::doctorsList)
+        {
+            if (i.second.type == reqType)
+                matchingRecords.push_back(i.second);
+        }
+        cout << "\n";
+        cout << matchingRecords.size() << " matching record(s) found!\n";
+        for (auto i : matchingRecords)
+            i.printDetails();
+        char tt = 'N';
+        if (matchingRecords.size() > 0)
+            do
+            {
+                int reqId;
+                cout << "\nEnter the ID of the required doctor: ";
+                cin >> reqId;
+                if (hospital::doctorsList.find(reqId) != hospital::doctorsList.end())
+                    *this = hospital::doctorsList[reqId];
+                else
+                {
+                    cout << "\nInvalid ID!\nTry again? (Y = Yes || N = No)\n";
+                    cin >> tt;
+                    while (tt != 'Y' || tt != 'N')
+                        cout << "Y or N?\n", cin >> tt;
+                }
+            } while (tt == 'Y');
+    }
+    return;
+}
+void doctor::getDetailsFromHistory()
+{
+    int opt = 0;
+    cout << "\nOPTIONS:\n[1]: Filter by Name\n[2]: Filter by Type\n\n";
+    cin >> opt;
+    while (opt != 1 && opt != 2)
+        cout << "option 1 or 2?\n", cin >> opt;
 
-    return 0;
+    //1: Filter by name;
+    if (opt == 1)
+    {
+        string reqFName, reqLName;
+        cout << "First Name:\n";
+        getline(cin >> ws, reqFName);
+        cout << "\nLast Name:\n";
+        getline(cin, reqLName);
+        vector<doctor> matchingRecords;
+        vector<string> extraDetails;
+        fstream f;
+        f.open("./data/doctorsHistory.csv", ios::in);
+        string temp;
+        //skipping the first row containing column headers;
+        getline(f >> ws, temp);
+        //analyzing each entry afterwards;
+        while (getline(f >> ws, temp))
+        {
+            doctor d;
+            //creating a string stream object to read from string 'temp';
+            stringstream s(temp);
+            string s4, s5, s7, s9;
+            //reading from the string stream object 's';
+            getline(s, d.firstName, ',');
+            getline(s, d.lastName, ',');
+
+            if (d.firstName == reqFName && d.lastName == reqLName)
+            {
+                getline(s, s4, ',');
+                getline(s, s5, ',');
+                getline(s, d.mobNumber, ',');
+                getline(s, s7, ',');
+                getline(s, d.type, ',');
+                getline(s, s9);
+                d.id = 0;
+                d.gender = s4[0];
+                d.age = strToNum(s5);
+                d.add.strToAdd(s7);
+                matchingRecords.push_back(d);
+                extraDetails.push_back(s9);
+            }
+        }
+        f.close();
+        cout << "\n";
+        cout << matchingRecords.size() << " matching record(s) found!\n";
+        for (int i = 0; i < matchingRecords.size(); i++)
+            matchingRecords[i].printDetailsFromHistory(extraDetails[i]);
+    }
+    //2: Filter by type;
+    else if (opt == 2)
+    {
+        string reqType;
+        cout << "Enter the type of doctor required:\n";
+        getline(cin >> ws, reqType);
+        vector<doctor> matchingRecords;
+        vector<string> extraDetails;
+        fstream f;
+        f.open("./data/doctorsHistory.csv", ios::in);
+        string temp;
+        //skipping the first row containing column headers;
+        getline(f >> ws, temp);
+        //analyzing each entry afterwards;
+        while (getline(f >> ws, temp))
+        {
+            doctor d;
+            //creating a string stream object to read from string 'temp';
+            stringstream s(temp);
+            string s4, s5, s7, s9;
+            //reading from the string stream object 's';
+            getline(s, d.firstName, ',');
+            getline(s, d.lastName, ',');
+            getline(s, s4, ',');
+            getline(s, s5, ',');
+            getline(s, d.mobNumber, ',');
+            getline(s, s7, ',');
+            getline(s, d.type, ',');
+            if (d.type == reqType)
+            {
+                getline(s, s9);
+                d.id = 0;
+                d.gender = s4[0];
+                d.age = strToNum(s5);
+                d.add.strToAdd(s7);
+                matchingRecords.push_back(d);
+                extraDetails.push_back(s9);
+            }
+        }
+        f.close();
+        cout << "\n";
+        cout << matchingRecords.size() << " matching record(s) found!\n";
+        for (int i = 0; i < matchingRecords.size(); i++)
+            matchingRecords[i].printDetailsFromHistory(extraDetails[i]);
+    }
+    return;
+}
+void doctor::removeuser()
+{
+    cout << "\nSearch for the doctor you want to remove.\n";
+    getDetails();
+    if (id == -1)
+        return;
+    if (appointmentsBooked > 0)
+    {
+        cout << "\nSelected doctor has appointments booked for today, can't be removed.\n\n";
+        return;
+    }
+    hospital::doctorsList.erase(id);
+
+    string s, temp;
+    stringstream str;
+    fstream f, fout;
+    string reason;
+    cout << "\nReason?\n";
+    getline(cin >> ws, reason);
+    str << firstName << "," << lastName << "," << gender << "," << age
+        << "," << mobNumber << "," << add.addToStr() << "," << type << ",N,NA\n";
+    getline(str, s);
+    f.open("./data/doctorsHistory.csv", ios::in);
+    fout.open("./data/temp.csv", ios::out);
+    while (getline(f, temp))
+    {
+        if (temp == s)
+        {
+            fout << firstName << "," << lastName << "," << gender << "," << age
+                 << "," << mobNumber << "," << add.addToStr() << "," << type << ",Y," << reason << "\n";
+        }
+        else
+            fout << temp << "\n";
+    }
+    f.close();
+    fout.close();
+    s.erase();
+    temp.erase();
+    remove("./data/doctorsHistory.csv");
+    rename("./data/temp.csv", "./data/doctorsHistory.csv");
+    cout << firstName << " " << lastName << " removed successfully!\n";
+    return;
 }
