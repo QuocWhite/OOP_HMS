@@ -5,6 +5,7 @@
 #include <unistd.h> 
 #include <ios>    //used to get stream size
 #include <limits> //used to get numeric limits
+#include <ctime> // used to get the current time and date
 using namespace std;
 
 #include "./include/global.h"
@@ -18,12 +19,28 @@ using namespace std;
 #include "./include/driver.h"
 #include "./include/ambulance.h"
 
+void getCurrentTime();
 void appointmentsMenu();
 void patientsMenu();
 void doctorsMenu();
 void nursesMenu();
 void driversMenu();
 void ambulancesMenu();
+
+void getCurrentTime()
+{ 
+    // Get the current time
+    time_t now = time(nullptr);
+
+    // Convert it to local time format
+    char buffer[80];
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", localtime(&now));
+
+    // Display the current date and time
+    cout << "Current date and time: " << buffer << endl;
+
+    return;
+}
 
 void appointmentsMenu()
 {
@@ -508,7 +525,8 @@ int main()
         system("clear");
         int category = 0;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        cout << "\nSelect a category:\n\n";
+        // cout << "\nSelect a category:\n\n";
+        getCurrentTime();
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "\tMAIN MENU\n";
