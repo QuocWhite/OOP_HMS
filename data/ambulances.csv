@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 ambulanceId,model,manufacturer,Vnumber,idle?,headedTowards(ifNotIdle),driverID(ifNotIdle)
-=======
-ambulanceId,model,manufacturer,vrn,idle?,headedTowards(ifNotIdle),driverID(ifNotIdle)
->>>>>>> cc04e5df1d4cdf366d3ae6d2d2619d7989c90e77
+

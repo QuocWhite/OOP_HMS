@@ -16,14 +16,14 @@ user::user()
 void user::adduser(int16_t minAge, int16_t maxAge)
 {
     //getting basic details of the user from the user side;
-    cout << "\nEnter name: \nFirst name:\n";
+    cout << "\nFirst name:\n";
     getline(cin >> ws, firstName);
     cout << "\nLast name:\n";
     getline(cin, lastName);
     a:
-    cout << "\nEnter age: \n";
+    cout << "\nEnter age: (0 - 100) \n";
     cin >> age;
-    if (age < 0 || age > 100){
+    if (age < 0 || age != int(age)){
         cout << "Was that supposed to make any kind of sense?\nEnter again!\n";
         goto a;
     }
