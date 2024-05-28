@@ -30,15 +30,5 @@ public:
     void reportArrival();
     void removeAmbulance();
 
-    ambulance(){};
-    ambulance(int id, string model, string manufacturer, string Vnumber, bool idle, address address, driver D){
-        this->id = id;
-        this->model = model;
-        this->manufacturer = manufacturer;
-        this->Vnumber = Vnumber;
-        this->idle = idle;
-        this->add = address;
-        this->D = D;
-    }
 };
 #endif // !AMBULANCE

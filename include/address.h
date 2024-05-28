@@ -18,12 +18,5 @@ public:
     string addToStr();
     void strToAdd(string str);
 
-    address(){};
-    address(string homecode, string street, string city, string country){
-        this->homecode = homecode;
-        this->street = street;
-        this->city = city;
-        this->country = country;
-    }
 };
 #endif 
