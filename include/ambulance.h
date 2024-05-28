@@ -12,7 +12,7 @@ private:
     int id;
     string model;
     string manufacturer;
-    string vrn; //vehicle registration number;
+    string Vnumber; 
     bool idle;
     address add;
     driver D;

@@ -68,14 +68,15 @@ void doctor::saveMap()
 }
 void doctor::adduser()
 {
+    system("clear");
     if (hospital::doctorsList.size() == hospital::doctorsLimit)
     {
         cout << "\n\nDoctors limit reached, can't add more!\n\n";
         return;
     }
-    //18 and 65 are the age limits for registration of a new doctor;
-    user::adduser(18, 65);
-    if ((age < 18) || (age > 65))
+    //28 and 65 are the age limits for registration of a new doctor;
+    user::adduser(28, 65);
+    if ((age < 28) || (age > 65))
         return;
     cout << "\nEnter the type of the doctor: \n";
     getline(cin >> ws, type);
@@ -100,6 +101,7 @@ void doctor::adduser()
 }
 void doctor::printDetails()
 {
+    system("clear");
     if (id == -1)
         return;
     user::printDetails();
@@ -109,6 +111,7 @@ void doctor::printDetails()
 }
 void doctor::printDetailsFromHistory(string extraDetails)
 {
+    system("clear");
     if (id == -1)
         return;
     user::printDetailsFromHistory();
@@ -156,6 +159,7 @@ void doctor::printDetailsFromHistory(string extraDetails)
 }
 void doctor::getDetails(int rec)
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by ID\n[2]: Filter by Name\n[3]: Filter by Type\n\n";
     cin >> opt;
@@ -248,6 +252,7 @@ void doctor::getDetails(int rec)
 }
 void doctor::getDetailsFromHistory()
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by Name\n[2]: Filter by Type\n\n";
     cin >> opt;
@@ -351,6 +356,7 @@ void doctor::getDetailsFromHistory()
 }
 void doctor::removeuser()
 {
+    system("clear");
     cout << "\nSearch for the doctor you want to remove.\n";
     getDetails();
     if (id == -1)

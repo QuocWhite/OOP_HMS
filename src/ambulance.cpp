@@ -33,7 +33,7 @@ void ambulance::fillMap()
         getline(s, s1, ',');
         getline(s, a.model, ',');
         getline(s, a.manufacturer, ',');
-        getline(s, a.vrn, ',');
+        getline(s, a.Vnumber, ',');
         getline(s, s5, ',');
         getline(s, s6, ',');
         getline(s, s7, ',');
@@ -54,10 +54,10 @@ void ambulance::saveMap()
     fstream f;
     f.open("./data/temp.csv", ios::out);
     // `le first line conataining column headers:
-    f << "ambulanceId,model,manufacturer,vrn,idle?,headedTowards(ifNotIdle),driverID(ifNotIdle)\n";
+    f << "ambulanceId,model,manufacturer,Vnumber,idle?,headedTowards(ifNotIdle),driverID(ifNotIdle)\n";
     for (auto i : hospital::ambulancesList)
     {
-        f << i.second.id << "," << i.second.model << "," << i.second.manufacturer << "," << i.second.vrn
+        f << i.second.id << "," << i.second.model << "," << i.second.manufacturer << "," << i.second.Vnumber
           << "," << (i.second.idle ? ("Y,NA,NA\n") : ("N," + i.second.add.addToStr() + ","));
         if (!(i.second.idle))
         {
@@ -71,6 +71,7 @@ void ambulance::saveMap()
 }
 void ambulance::addAmbulance()
 {
+    system("clear");
     if (hospital::ambulancesList.size() == hospital::ambulancesLimit)
     {
         cout<<"\n\nAmbulances limit reached, can't add more!\n\n";
@@ -82,7 +83,7 @@ void ambulance::addAmbulance()
     cout << "\nEnter Manufacturer Name of the ambulance:\n";
     getline(cin >> ws, manufacturer);
     cout << "\nEnter Vehicle Registration Number of the ambulance:\n";
-    getline(cin >> ws, vrn);
+    getline(cin >> ws, Vnumber);
     if (hospital::ambulancesList.rbegin() != hospital::ambulancesList.rend())
         id = ((hospital::ambulancesList.rbegin())->first) + 1;
     else
@@ -93,7 +94,7 @@ void ambulance::addAmbulance()
     fstream f;
     //creating a record in ambulancesHistory.csv;
     f.open("./data/ambulancesHistory.csv", ios::app);
-    f << model << "," << manufacturer << "," << vrn << ",Y" << endl;
+    f << model << "," << manufacturer << "," << Vnumber << ",Y" << endl;
     f.close();
 
     cout << "\n"
@@ -102,13 +103,14 @@ void ambulance::addAmbulance()
 }
 void ambulance::printDetails()
 {
+    system("clear");
     if (id == -1)
         return;
     cout << "Details:\n";
     cout << "ID              : " << id << "\n";
     cout << "Manufacturer    : " << manufacturer << "\n";
     cout << "Model           : " << model << "\n";
-    cout << "Reg Number      : " << vrn << "\n";
+    cout << "Reg Number      : " << Vnumber << "\n";
     cout << "Idle?           : " << ((idle) ? "Y" : "N") << "\n";
     if (!idle)
     {
@@ -120,6 +122,7 @@ void ambulance::printDetails()
 }
 void ambulance::printDetailsFromHistory(string extraDetails)
 {
+    system("clear");
     if (id == -1)
         return;
     if (extraDetails == "")
@@ -141,7 +144,7 @@ void ambulance::printDetailsFromHistory(string extraDetails)
             getline(s, a.manufacturer, ',');
             getline(s, s4, ',');
 
-            if (vrn == s4)
+            if (Vnumber == s4)
             {
                 getline(s, extraDetails, ',');
             }
@@ -150,12 +153,13 @@ void ambulance::printDetailsFromHistory(string extraDetails)
     }
     cout << "Model           : " << model << "\n";
     cout << "Manufacturer    : " << manufacturer << "\n";
-    cout << "Reg. Number     : " << vrn << "\n";
+    cout << "Reg. Number     : " << Vnumber << "\n";
     cout << "Still owned?    : " << extraDetails << "\n";
     return;
 }
 void ambulance::getDetails(int rec)
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by ID\n[2]: Filter by Model\n[3]: Filter by Vehicle Reg. Number\n\n";
     cin >> opt;
@@ -164,6 +168,7 @@ void ambulance::getDetails(int rec)
     //1: Filter by ID;
     if (opt == 1)
     {
+        system("clear");
         int reqId;
         cout << "\nEnter ID:\n";
         cin >> reqId;
@@ -175,6 +180,7 @@ void ambulance::getDetails(int rec)
     //2: Filter by model;
     else if (opt == 2)
     {
+        system("clear");
         string reqModel;
         cout << "Model:\n";
         getline(cin >> ws, reqModel);
@@ -193,6 +199,7 @@ void ambulance::getDetails(int rec)
         {
             do
             {
+                system("clear");
                 int reqId;
                 cout << "\nEnter the ID of the required ambulance: ";
                 cin >> reqId;
@@ -211,12 +218,13 @@ void ambulance::getDetails(int rec)
     //3: Filter by vehicle reg. number;
     else if (opt == 3)
     {
-        string reqVRN;
+        system("clear");
+        string reqVnumber;
         cout << "Enter the vehicle reg. number of ambulance required:\n";
-        getline(cin >> ws, reqVRN);
+        getline(cin >> ws, reqVnumber);
         for (auto i : hospital::ambulancesList)
         {
-            if (i.second.vrn == reqVRN)
+            if (i.second.Vnumber == reqVnumber)
             {
                 *this = i.second;
                 return;
@@ -231,6 +239,7 @@ void ambulance::getDetails(int rec)
 }
 void ambulance::getDetailsFromHistory()
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by model\n[2]: Filter by vehicle reg. number\n\n";
     cin >> opt;
@@ -240,6 +249,7 @@ void ambulance::getDetailsFromHistory()
     //1: Filter by name;
     if (opt == 1)
     {
+        system("clear");
         string reqModel;
         cout << "Model:\n";
         getline(cin >> ws, reqModel);
@@ -265,7 +275,7 @@ void ambulance::getDetailsFromHistory()
             {
 
                 getline(s, a.manufacturer, ',');
-                getline(s, a.vrn, ',');
+                getline(s, a.Vnumber, ',');
                 getline(s, s4, ',');
                 a.id = 0;
                 matchingRecords.push_back(a);
@@ -278,12 +288,13 @@ void ambulance::getDetailsFromHistory()
         for (int i = 0; i < matchingRecords.size(); i++)
             matchingRecords[i].printDetailsFromHistory(extraDetails[i]);
     }
-    //2: Filter by vrn;
+    //2: Filter by Vnumber;
     else if (opt == 2)
     {
-        string reqVRN;
+        system("clear");
+        string reqVnumber;
         cout << "Enter the vehicle reg. number of ambulance required:\n";
-        getline(cin >> ws, reqVRN);
+        getline(cin >> ws, reqVnumber);
         vector<ambulance> matchingRecords;
         vector<string> extraDetails;
         fstream f;
@@ -300,8 +311,8 @@ void ambulance::getDetailsFromHistory()
             //reading from the string stream object 's';
             getline(s, model, ',');
             getline(s, manufacturer, ',');
-            getline(s, vrn, ',');
-            if (vrn == reqVRN)
+            getline(s, Vnumber, ',');
+            if (Vnumber == reqVnumber)
             {
                 getline(s, s4, ',');
                 id = 0;
@@ -319,6 +330,7 @@ void ambulance::getDetailsFromHistory()
 }
 void ambulance::send()
 {
+    system("clear");
 
     //*************picking an idle ambulance*************;
 
@@ -373,6 +385,7 @@ void ambulance::send()
 }
 void ambulance::reportArrival()
 {
+    system("clear");
     getDetails();
 
     //updating status of driver;
@@ -391,6 +404,7 @@ void ambulance::reportArrival()
 }
 void ambulance::removeAmbulance()
 {
+    system("clear");
     cout << "\nSearch for the ambulance you want to remove.\n";
     getDetails();
     if (id == -1)
@@ -405,7 +419,7 @@ void ambulance::removeAmbulance()
     string s, temp;
     stringstream str;
     fstream f, fout;
-    str << model << "," << manufacturer << "," << vrn << ",Y\n";
+    str << model << "," << manufacturer << "," << Vnumber << ",Y\n";
     getline(str, s);
     f.open("./data/ambulancesHistory.csv", ios::in);
     fout.open("./data/temp.csv", ios::out);
@@ -413,7 +427,7 @@ void ambulance::removeAmbulance()
     {
         if (temp == s)
         {
-            fout << model << "," << manufacturer << "," << vrn << ",N"
+            fout << model << "," << manufacturer << "," << Vnumber << ",N"
                  << "\n";
         }
         else
@@ -425,6 +439,6 @@ void ambulance::removeAmbulance()
     temp.erase();
     remove("./data/ambulancesHistory.csv");
     rename("./data/temp.csv", "./data/ambulancesHistory.csv");
-    cout << model << " by " << manufacturer << " (VRN = " << vrn << ") removed successfully!\n";
+    cout << model << " by " << manufacturer << " (Vnumber = " << Vnumber << ") removed successfully!\n";
     return;
 }

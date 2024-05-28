@@ -15,7 +15,6 @@ using namespace std;
 class hospital
 {
 private:
-    //map<id, object>
     static map<int, doctor> doctorsList;
     static map<int, patient> patientsList;
     static map<int, nurse> nursesList;
