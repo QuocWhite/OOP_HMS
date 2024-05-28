@@ -17,7 +17,6 @@ address::address()
 }
 void address::takeInput()
 {
-    system("clear");
     cout << "\nEnter address:\n";
     cout << "\nYour home code:\n";
     getline(cin >> ws, homecode);
@@ -31,7 +30,6 @@ void address::takeInput()
 }
 void address::print()
 {
-    system("clear");
     cout << "Home code          : " << homecode << "\n";
     cout << "Street             : " << street << "\n";
     cout << "City               : " << city << "\n";
