@@ -8,8 +8,8 @@ class appointment;
 class patient : public user
 {
 private:
-    int height; //in cms;
-    int weight; //in pounds;
+    float height; //in M;
+    float weight; //in KG;
     bool hospitalized;
     bool alive;
     friend class appointment;

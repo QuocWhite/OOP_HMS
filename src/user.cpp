@@ -20,11 +20,14 @@ void user::adduser(int16_t minAge, int16_t maxAge)
     getline(cin >> ws, firstName);
     cout << "\nLast name:\n";
     getline(cin, lastName);
-
+    a:
     cout << "\nEnter age: \n";
     cin >> age;
-    while (age <= 0)
-        cout << "Was that supposed to make any kind of sense?\nEnter again!\n", cin >> age;
+    if (age < 0 || age > 100){
+        cout << "Was that supposed to make any kind of sense?\nEnter again!\n";
+        goto a;
+    }
+        
     if (category != 2)
     {
         if (age < minAge)
@@ -35,8 +38,9 @@ void user::adduser(int16_t minAge, int16_t maxAge)
 
     cout << "\nGender (M = Male || F = Female): \n";
     cin >> gender;
-    while (gender != 'M' && gender != 'F')
-        cout << "M or F?\n", cin >> gender;
+    while (gender != 'M' && gender != 'F'){
+        cout << "Gender must be M or F\n", cin >> gender;
+    }
     cout << "\nEnter mobile number (with country code): \n";
     getline(cin >> ws, mobNumber);
     add.takeInput();
@@ -47,12 +51,12 @@ void user::printDetails()
     if (id == -1)
         return;
     cout << "\nDetails:\n";
-    cout << "ID              : " << id << "\n";
-    cout << "Full Name       : " << firstName << " " << lastName << "\n";
-    cout << "Gender          : " << gender << "\n";
-    cout << "Age             : " << age << "\n";
-    cout << "Mobile          : " << mobNumber << "\n";
-    cout << "Address         : ";
+    cout << "ID                 : " << id << "\n";
+    cout << "Full Name          : " << firstName << " " << lastName << "\n";
+    cout << "Gender             : " << gender << "\n";
+    cout << "Age                : " << age << "\n";
+    cout << "Mobile             : " << mobNumber << "\n";
+    cout << "Address            : \n";
     add.print();
     return;
 }

@@ -1,1 +1,2 @@
 patientId,firstName,lastName,gender,age,mobNumber,address,height,weight,wasHospitalized?,stillAlive(ifHospitalized)?
+1,hddf,fsdf,male,32,34534326,czxc, 45, 34, Y, Y

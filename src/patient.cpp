@@ -74,13 +74,16 @@ void patient::saveMap()
 }
 void patient::adduser()
 {
+    system("clear");
     //getting the basic details of patient from the user side;
     user::adduser();
     //getting patient specific details;
-    cout << "\nEnter the height of the patient (in cms):\n";
+    cout << "\nEnter the height of the patient (in M):\n";
     cin >> height;
-    cout << "\nEnter the weight of the patient (in pounds):\n";
+    cout << "\nEnter the weight of the patient (in Kg):\n";
     cin >> weight;
+    float BMI = weight/height*height;
+    cout << "Your BMI is: " << BMI << "\n";
     char tt;
     cout << "\nIs the patient being hospitalized? (Y = Yes || N = No)\n";
     cin >> tt;
@@ -110,22 +113,24 @@ void patient::adduser()
     cout << "\n"
          << firstName << " " << lastName << " registered successfully!\n";
     cout << "Their ID is: " << id << "\n";
-
+    system("clear");
     return;
 }
 void patient::printDetails()
 {
+    system("clear");
     if (id == -1)
         return;
     user::printDetails();
-    cout << "Height (cms)    : " << height << "\n";
-    cout << "Weight (pounds) : " << weight << "\n";
-    cout << "Was Hospitalized? " << ((hospitalized) ? "Y" : "N") << "\n";
-    cout << "Alive?          : " << ((alive) ? "Y" : "N") << "\n";
+    cout << "Height (cms)       : " << height << "\n";
+    cout << "Weight (pounds)    : " << weight << "\n";
+    cout << "Was Hospitalized?  : " << ((hospitalized) ? "Y" : "N") << "\n";
+    cout << "Alive?             : " << ((alive) ? "Y" : "N") << "\n";
     return;
 }
 void patient::printDetailsFromHistory(string extraDetails)
 {
+    system("clear");
     if (id == -1)
         return;
     user::printDetailsFromHistory();
@@ -175,6 +180,7 @@ void patient::printDetailsFromHistory(string extraDetails)
 }
 void patient::getDetails(int rec)
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by ID\n[2]: Filter by Name\n\n";
     cin >> opt;
@@ -233,6 +239,7 @@ void patient::getDetails(int rec)
 }
 void patient::getDetailsFromHistory()
 {
+    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by Name\n[2]: Filter by Mobile Number\n\n";
     cin >> opt;
@@ -351,6 +358,7 @@ void patient::getDetailsFromHistory()
 }
 void patient::hospitalize()
 {
+    system("clear");
     cout << "\nSearch for the patient.\n";
     getDetails();
     if (id == -1)
@@ -393,6 +401,7 @@ void patient::hospitalize()
 }
 void patient::reportADeath()
 {
+    system("clear");
     cout << "\nSearch for the patient.\n";
     getDetails();
     if (id == -1)
@@ -430,7 +439,7 @@ void patient::reportADeath()
     temp.erase();
     remove("./data/patientsHistory.csv");
     rename("./data/temp.csv", "./data/patientsHistory.csv");
-    cout << firstName << " " << lastName << " reported dead, we hope their soul rests in peace, amen!\n";
+    cout << firstName << " " << lastName << " reported dead, we hope their soul rests in peace !\n";
     return;
 }
 void patient::removeuser()
