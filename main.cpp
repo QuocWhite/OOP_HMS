@@ -37,7 +37,7 @@ void getCurrentTime()
     strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", localtime(&now));
 
     // Display the current date and time
-    cout << "Current date and time: " << buffer << endl;
+    cout << "Today's date and time: " << buffer << endl;
 
     return;
 }
@@ -54,6 +54,7 @@ void appointmentsMenu()
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        getCurrentTime();
         cout << "\tAPPOINTMENT MENU\n";
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "[1] : Book an appointment\n";
@@ -114,6 +115,7 @@ void patientsMenu()
     {
         int purpose = 0;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        getCurrentTime(); // Function to get the current time
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -201,6 +203,7 @@ void doctorsMenu()
     {
         int purpose = 0;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        getCurrentTime(); // Function to get the current time
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -276,6 +279,7 @@ void nursesMenu()
     {
         int purpose = 0;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        getCurrentTime(); // Function to get the current time
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -351,6 +355,7 @@ void driversMenu()
     {
         int purpose = 0;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        getCurrentTime(); // Function to get the current time
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -426,6 +431,7 @@ void ambulancesMenu()
     {
         int purpose = 0;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        getCurrentTime(); // Function to get the current time
         cout << "\nSelect an option:\n\n";
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";

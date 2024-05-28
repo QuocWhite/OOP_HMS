@@ -5,9 +5,37 @@ using namespace std;
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <limits> // for std::numeric_limits
 
 #include "./../include/global.h"
 #include "./../include/user.h"
+
+void ageValidation()
+{
+    int number;
+
+    while (true) {
+        std::cout << "Please enter a valid age (1 - 100): ";
+        std::cin >> number;
+
+        // Check if the input is valid
+        if (std::cin.fail() || number <= 0) {
+            // Clear the error state
+            std::cin.clear();
+            
+            // Ignore the rest of the invalid input
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            
+            // Inform the user about the invalid input
+            std::cout << "Invalid input. Please enter a valid age." << std::endl;
+        } else {
+            // Valid input, break the loop
+            break;
+        }
+    }
+    return;
+
+}
 
 user::user()
 {
@@ -16,25 +44,13 @@ user::user()
 void user::adduser(int16_t minAge, int16_t maxAge)
 {
     //getting basic details of the user from the user side;
-    cout << "\nEnter name: \nFirst name:\n";
+    cout << "\nEnter First name:\n";
     getline(cin >> ws, firstName);
     cout << "\nLast name:\n";
     getline(cin, lastName);
     a:
-    cout << "\nEnter age: \n";
-    cin >> age;
-    if (age < 0 || age > 100){
-        cout << "Was that supposed to make any kind of sense?\nEnter again!\n";
-        goto a;
-    }
-        
-    if (category != 2)
-    {
-        if (age < minAge)
-            return void(cout << "Sorry, user should be at least " << minAge << " years old to be registered as a " << cat << ".\n");
-        else if (age > maxAge)
-            return void(cout << "Sorry, we can't register a user older than " << maxAge << " years as a " << cat << ".\n");
-    }
+    // Age Validation
+    ageValidation(); // Function to validate user's age 
 
     cout << "\nGender (M = Male || F = Female): \n";
     cin >> gender;
@@ -46,6 +62,7 @@ void user::adduser(int16_t minAge, int16_t maxAge)
     add.takeInput();
     return;
 }
+
 void user::printDetails()
 {
     if (id == -1)
