@@ -5,9 +5,12 @@ using namespace std;
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <limits> // for std::numeric_limits
 
 #include "./../include/global.h"
 #include "./../include/user.h"
+
+
 
 user::user()
 {
@@ -16,36 +19,48 @@ user::user()
 void user::adduser(int16_t minAge, int16_t maxAge)
 {
     //getting basic details of the user from the user side;
-    cout << "\nEnter name: \nFirst name:\n";
+    cout << "\nEnter First name:\n";
     getline(cin >> ws, firstName);
     cout << "\nLast name:\n";
     getline(cin, lastName);
-    a:
+    // Age Validation
+// Function to validate user's agewhile (age <= 0)
     cout << "\nEnter age: \n";
     cin >> age;
-    if (age < 0 || age > 100){
-        cout << "Was that supposed to make any kind of sense?\nEnter again!\n";
-        goto a;
+    while (cin.fail() || age < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Was that supposed to make any kind of sense?\nEnter again!\n", cin >> age;
     }
-        
-    if (category != 2)
-    {
-        if (age < minAge)
-            return void(cout << "Sorry, user should be at least " << minAge << " years old to be registered as a " << cat << ".\n");
-        else if (age > maxAge)
-            return void(cout << "Sorry, we can't register a user older than " << maxAge << " years as a " << cat << ".\n");
+    while(age > minAge && age < maxAge){
+        if (age < minAge){
+            cout << "Sorry, person should be at least " << minAge 
+            << " years old to be registered as a " << cat << ".\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "\nEnter again!\n", cin >> age;
+        }
+        else if (age > maxAge){
+            cout << "Sorry, we can't register a person older than " << maxAge << " years as a " << cat << ".\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Was that supposed to make any kind of sense?\nEnter again!\n", cin >> age;
+        }
     }
+    
+
 
     cout << "\nGender (M = Male || F = Female): \n";
     cin >> gender;
-    while (gender != 'M' && gender != 'F'){
+    while (gender != 'M' && gender != 'F' && gender != 'm' && gender != 'f'){
         cout << "Gender must be M or F\n", cin >> gender;
     }
-    cout << "\nEnter mobile number (with country code): \n";
+    cout << "\nEnter mobile number: \n";
     getline(cin >> ws, mobNumber);
     add.takeInput();
     return;
 }
+
 void user::printDetails()
 {
     if (id == -1)

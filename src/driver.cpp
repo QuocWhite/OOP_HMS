@@ -73,9 +73,7 @@ void driver::adduser()
         return;
     }
     //28 and 65 are the age limits for registration of a new driver;
-    user::adduser(28, 65);
-    if ((age < 28) || (age > 65))
-        return;
+    user::adduser(23, 70);
     cout << "\nEnter the license number of the driver: \n";
     getline(cin >> ws, licenseNumber);
     if (hospital::driversList.rbegin() != hospital::driversList.rend())
@@ -93,7 +91,7 @@ void driver::adduser()
     cout << "\n"
          << firstName << " " << lastName << " registered successfully!\n";
     cout << "Their ID is: " << id << "\n";
-
+    saveMap();
     return;
 }
 void driver::printDetails()

@@ -10,18 +10,18 @@ using namespace std;
 
 address::address()
 {
-    homecode = "";
+    district = "";
     street = "";
     city = "";
     country = "";
 }
 void address::takeInput()
 {
-    cout << "\nEnter address: \t";
-    cout << "\nYour home code:\n";
-    getline(cin >> ws, homecode);
+    cout << "\nAddress information: \t";
     cout << "\nYour street:\n";
-    getline(cin, street);
+    getline(cin >> ws, street);
+    cout << "\nYour district:\n";
+    getline(cin, district);
     cout << "\nCity:\n";
     getline(cin >> ws, city);
     cout << "\nCountry:\n";
@@ -30,8 +30,8 @@ void address::takeInput()
 }
 void address::print()
 {
-    cout << "Home code          : " << homecode << "\n";
     cout << "Street             : " << street << "\n";
+    cout << "District           : " << district << "\n";
     cout << "City               : " << city << "\n";
     cout << "Country            : " << country << "\n";
     return;
@@ -39,7 +39,7 @@ void address::print()
 string address::addToStr()
 {
     stringstream s;
-    s << homecode << "`" << street << "`" << city << "`" << country;
+    s << street << " " << district << " " << city << " " << country;
     string add;
     getline(s, add);
     for (auto &i : add)
@@ -51,17 +51,17 @@ void address::strToAdd(string str)
 {
     stringstream s(str);
     
-    getline(s, homecode, '`');
-    for (auto &i : homecode)
-        if (i == '^')
-            i = ',';
-
-    getline(s, street, '`');
+    getline(s, street);
     for (auto &i : street)
         if (i == '^')
             i = ',';
 
-    getline(s, city, '`');
-    getline(s, country, '`');
+    getline(s, district);
+    for (auto &i : district)
+        if (i == '^')
+            i = ',';
+
+    getline(s, city);
+    getline(s, country);
     return;
 }

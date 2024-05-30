@@ -164,6 +164,7 @@ void appointment::book()
     cout << "\nAppointment of patient " + P.firstName + " " + P.lastName + " with doctor "
          << D.firstName << " " << D.lastName << " booked successfully!\n";
     printDetails();
+    saveMap();
     return;
 }
 void appointment::getDetails()

@@ -1,1 +1,4 @@
 patientId,firstName,lastName,gender,age,mobNumber,address,height,weight,wasHospitalized?,stillAlive(ifHospitalized)?
+1,Quoc,Dang,m,643,04857473463,Nguyen Tuan Cau Giay Hanoi Vietnam   ,854,43,Y,Y
+2,Dang,Huu,f,200,04822838437,Hoang Hoa Tham Cau Giay Hanoi Viatnam   ,843,30,Y,Y
+3,Dang Hong,Bao,M,1345,0384736251,Ho Tung Mau Cau Giay Hanoi Viet Nam,1.54,68,N,Y

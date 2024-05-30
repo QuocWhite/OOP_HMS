@@ -76,8 +76,6 @@ void doctor::adduser()
     }
     //28 and 65 are the age limits for registration of a new doctor;
     user::adduser(28, 65);
-    if ((age < 28) || (age > 65))
-        return;
     cout << "\nEnter the type of the doctor: \n";
     getline(cin >> ws, type);
     if (hospital::doctorsList.rbegin() != hospital::doctorsList.rend())
@@ -86,6 +84,8 @@ void doctor::adduser()
         id = 1;
     hospital::doctorsList[id] = *this;
 
+
+    
     //creating a fstream object to read/write from/to files;
     fstream f;
     //creating a record in doctorsHistory.csv;
@@ -93,6 +93,7 @@ void doctor::adduser()
     f << firstName << "," << lastName << "," << gender << "," << age << "," << mobNumber << "," << add.addToStr() << "," << type << ",N,NA" << endl;
     f.close();
 
+    saveMap();
     cout << "\n"
          << firstName << " " << lastName << " registered successfully!\n";
     cout << "Their ID is: " << id << "\n";

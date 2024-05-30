@@ -1,1 +1,7 @@
 doctorId,firstName,lastName,gender,age,mobNumber,address,type,appointmentsBooked
+1,Long,Le,m,45,045865844,  Mi Dinh  Hanoi Vietnam                            ,General,0
+2,Ba,Long,m,46,0348458325,  Cau Giay  Hanoi Vietnam                            ,Heart,0
+3,Nguyen,Hien,@,12,,            ,General,0
+4,AI,Do,°,2,,         ,1,0
+5,1,1,°,1,,         ,1,0
+6,1,11,°,1,,         ,1,0

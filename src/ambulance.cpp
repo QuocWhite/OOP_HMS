@@ -118,6 +118,7 @@ void ambulance::printDetails()
         add.print();
         cout << "Driver ID       : " << D.id << "\n";
     }
+    saveMap();
     return;
 }
 void ambulance::printDetailsFromHistory(string extraDetails)

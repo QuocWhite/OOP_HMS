@@ -6,7 +6,7 @@ using namespace std;
 class address
 {
 private:
-    string homecode;
+    string district;
     string street;
     string city;
     string country;

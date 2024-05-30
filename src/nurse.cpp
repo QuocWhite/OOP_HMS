@@ -71,9 +71,7 @@ void nurse::adduser()
         return;
     }
     //28 and 65 are the age limits for registration of a new nurse;
-    user::adduser(28, 65);
-    if ((age < 28) || (age > 65))
-        return;
+    user::adduser(23, 65);
     cout << "\nEnter the type of the nurse: \n";
     getline(cin >> ws, type);
     if (hospital::nursesList.rbegin() != hospital::nursesList.rend())
@@ -92,7 +90,7 @@ void nurse::adduser()
     cout << "\n"
          << firstName << " " << lastName << " registered successfully!\n";
     cout << "Their ID is: " << id << "\n";
-
+    saveMap();
     return;
 }
 void nurse::printDetails()

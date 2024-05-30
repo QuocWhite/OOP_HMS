@@ -4,6 +4,7 @@ using namespace std;
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <unistd.h>
 
 #include "./../include/global.h"
 #include "./../include/patient.h"
@@ -59,7 +60,7 @@ void patient::fillMap()
 void patient::saveMap()
 {
     fstream f;
-    f.open("./data/temp.csv", ios::out);
+    f.open("./data/temp.csv", ios::app);
     // `le first line conataining column headers:
     f << "patientId,firstName,lastName,gender,age,mobNumber,address,height,weight,wasHospitalized?,stillAlive(ifHospitalized)?\n";
     for (auto i : hospital::patientsList)
@@ -76,18 +77,18 @@ void patient::adduser()
 {
     system("clear");
     //getting the basic details of patient from the user side;
-    user::adduser();
+    user::adduser(0, 200);
     //getting patient specific details;
     cout << "\nEnter the height of the patient (in M):\n";
     cin >> height;
     cout << "\nEnter the weight of the patient (in Kg):\n";
     cin >> weight;
-    float BMI = weight/height*height;
+    float BMI = weight/(height*height);
     cout << "Your BMI is: " << BMI << "\n";
     char tt;
     cout << "\nIs the patient being hospitalized? (Y = Yes || N = No)\n";
     cin >> tt;
-    while (tt != 'Y' && tt != 'N')
+    while (tt != 'Y' && tt != 'N', tt != 'y' && tt != 'n')
         cout << "Y or N?\n", cin >> tt;
     hospitalized = (tt == 'Y');
     if (hospital::patientsList.rbegin() != hospital::patientsList.rend())
@@ -114,6 +115,7 @@ void patient::adduser()
          << firstName << " " << lastName << " registered successfully!\n";
     cout << "Their ID is: " << id << "\n";
     system("clear");
+    saveMap();
     return;
 }
 void patient::printDetails()
@@ -196,6 +198,7 @@ void patient::getDetails(int rec)
             *this = hospital::patientsList[reqId];
         else
             cout << "\nNo matching record found!\n";
+            sleep(1);
     }
     //2: Filter by name;
     else if (opt == 2)

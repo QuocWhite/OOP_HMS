@@ -22,7 +22,7 @@ public:
     user();
     virtual void fillMap() = 0;
     virtual void saveMap() = 0;
-    virtual void adduser(int16_t minAge = 0, int16_t maxAge = 1000);
+    virtual void adduser(int16_t minAge, int16_t maxAge);
     virtual void printDetails();
     virtual void printDetailsFromHistory();
     virtual void getDetails(int rec = 0) = 0;
