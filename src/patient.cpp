@@ -23,16 +23,12 @@ void patient::fillMap()
     fstream f;
     f.open("./data/patients.csv", ios::in);
     string temp;
-    //skipping the first row containing column headers;
     getline(f >> ws, temp);
-    //analyzing each entry afterwards;
     while (getline(f >> ws, temp))
     {
         patient p;
-        //creating a string stream object to read from string 'temp';
         stringstream s(temp);
         string s1, s4, s5, s7, s8, s9, s10, s11;
-        //reading from the string stream object 's';
         getline(s, s1, ',');
         getline(s, p.firstName, ',');
         getline(s, p.lastName, ',');

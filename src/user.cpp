@@ -18,16 +18,13 @@ user::user()
 }
 void user::adduser(int16_t minAge, int16_t maxAge)
 {
-    //getting basic details of the user from the user side;
     cout << "\nEnter First name:\n";
     getline(cin >> ws, firstName);
     cout << "\nLast name:\n";
     getline(cin, lastName);
-    // Age Validation
-// Function to validate user's agewhile (age <= 0)
     cout << "\nEnter age: \n";
     cin >> age;
-    while (cin.fail() || age < 0){
+    while ( age < 0){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Was that supposed to make any kind of sense?\nEnter again!\n", cin >> age;
@@ -47,9 +44,6 @@ void user::adduser(int16_t minAge, int16_t maxAge)
             cout << "Was that supposed to make any kind of sense?\nEnter again!\n", cin >> age;
         }
     }
-    
-
-
     cout << "\nGender (M = Male || F = Female): \n";
     cin >> gender;
     while (gender != 'M' && gender != 'F' && gender != 'm' && gender != 'f'){
