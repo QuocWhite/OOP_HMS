@@ -110,7 +110,7 @@ void ambulance::printDetails()
     cout << "ID              : " << id << "\n";
     cout << "Manufacturer    : " << manufacturer << "\n";
     cout << "Model           : " << model << "\n";
-    cout << "Reg Number      : " << Vnumber << "\n";
+    cout << "Vehicle Number  : " << Vnumber << "\n";
     cout << "Idle?           : " << ((idle) ? "Y" : "N") << "\n";
     if (!idle)
     {

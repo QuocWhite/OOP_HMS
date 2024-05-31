@@ -12,8 +12,8 @@ private:
     int id;
     string model;
     string manufacturer;
-    string Vnumber; 
-    bool idle;
+    string Vnumber; // vehicle number
+    bool idle; // true if the ambulance free slot otherwise false
     address add;
     driver D;
 

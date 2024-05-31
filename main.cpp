@@ -63,6 +63,11 @@ void appointmentsMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
+        while (cin.fail() || purpose < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Your choice should be a number.\nEnter again!\n", cin >> purpose;
+        }
 
         if (purpose == 1)
         {
@@ -131,6 +136,11 @@ void patientsMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
+        while (cin.fail() || purpose < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Your choice should be a number.\nEnter again!\n", cin >> purpose;
+        }
 
         if (purpose == 1)
         {
@@ -217,6 +227,11 @@ void doctorsMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
+        while (cin.fail() || purpose < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Your choice should be a number.\nEnter again!\n", cin >> purpose;
+        }
 
         if (purpose == 1)
         {
@@ -292,6 +307,11 @@ void nursesMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
+        while (cin.fail() || purpose < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Your choice should be a number.\nEnter again!\n", cin >> purpose;
+        }
 
         if (purpose == 1)
         {
@@ -367,6 +387,11 @@ void driversMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
+        while (cin.fail() || purpose < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Your choice should be a number.\nEnter again!\n", cin >> purpose;
+        }
 
         if (purpose == 1)
         {
@@ -445,6 +470,11 @@ void ambulancesMenu()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> purpose;
+        while (cin.fail() || purpose < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Your choice should be a number.\nEnter again!\n", cin >> purpose;
+        }
 
         if (purpose == 1)
         {
@@ -544,6 +574,11 @@ int main()
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         cout << "Enter your choice: ";
         cin >> category;
+        while (cin.fail() || category < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Your choice should be a number.\nEnter again!\n", cin >> category;
+        }
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "\n";
         if (category == 0)

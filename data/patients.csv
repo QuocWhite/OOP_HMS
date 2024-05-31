@@ -1,4 +1,6 @@
 patientId,firstName,lastName,gender,age,mobNumber,address,height,weight,wasHospitalized?,stillAlive(ifHospitalized)?
-1,Quoc,Dang,m,643,04857473463,Nguyen Tuan Cau Giay Hanoi Vietnam   ,854,43,Y,Y
-2,Dang,Huu,f,200,04822838437,Hoang Hoa Tham Cau Giay Hanoi Viatnam   ,843,30,Y,Y
-3,Dang Hong,Bao,M,1345,0384736251,Ho Tung Mau Cau Giay Hanoi Viet Nam,1.54,68,N,Y
+1,Quoc,Dang,m,643,04857473463,Nguyen Tuan Cau Giay Hanoi Vietnam               ,854,43,Y,Y
+2,Dang,Huu,f,200,04822838437,Hoang Hoa Tham Cau Giay Hanoi Viatnam               ,843,30,Y,Y
+3,Dang Hong,Bao,M,1345,0384736251,Ho Tung Mau Cau Giay Hanoi Viet Nam            ,854,68,N,Y
+4,Quoc,Dang,m,23,0949848384,Vo Chi Cong Tay Ho  Hanoi Vietnam         ,875,43,N,Y
+5,Dang Van,Quoc,m,342,032487232323,Nguyen Khanh Toan Cau Giay Hanoi Vietnam,1.7,98,N,Y

@@ -5,6 +5,7 @@ using namespace std;
 #include <sstream>
 #include <fstream>
 #include <unistd.h>
+#include <limits> 
 
 #include "./../include/global.h"
 #include "./../include/patient.h"
@@ -77,8 +78,18 @@ void patient::adduser()
     //getting patient specific details;
     cout << "\nEnter the height of the patient (in M):\n";
     cin >> height;
+    while (cin.fail() || height < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Height should be a number.\nEnter again!\n", cin >> height;
+    }
     cout << "\nEnter the weight of the patient (in Kg):\n";
     cin >> weight;
+    while (cin.fail() || weight < 0){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Weight should be a number.\nEnter again!\n", cin >> weight;
+    }
     float BMI = weight/(height*height);
     cout << "Your BMI is: " << BMI << "\n";
     char tt;
