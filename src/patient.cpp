@@ -72,7 +72,7 @@ void patient::saveMap()
 }
 void patient::adduser()
 {
-    system("clear");
+    
     //getting the basic details of patient from the user side;
     user::adduser(0, 200);
     //getting patient specific details;
@@ -121,15 +121,13 @@ void patient::adduser()
     cout << "\n"
          << firstName << " " << lastName << " registered successfully!\n";
     cout << "Their ID is: " << id << "\n";
-    system("clear");
+    
     saveMap();
     return;
 }
 void patient::printDetails()
 {
-    system("clear");
-    if (id == -1)
-        return;
+    
     user::printDetails();
     cout << "Height (cms)       : " << height << "\n";
     cout << "Weight (pounds)    : " << weight << "\n";
@@ -139,7 +137,7 @@ void patient::printDetails()
 }
 void patient::printDetailsFromHistory(string extraDetails)
 {
-    system("clear");
+    
     if (id == -1)
         return;
     user::printDetailsFromHistory();
@@ -189,12 +187,12 @@ void patient::printDetailsFromHistory(string extraDetails)
 }
 void patient::getDetails(int rec)
 {
-    system("clear");
-    int opt = 0;
+    
+    int opt;
     cout << "\nOPTIONS:\n[1]: Filter by ID\n[2]: Filter by Name\n\n";
     cin >> opt;
-    while (opt != 1 && opt != 2)
-        cout << "option 1 or 2?\n", cin >> opt;
+    while (cin.fail() && opt != 1 && opt != 2)
+        cout << "Option 1 or 2?\n", cin >> opt;
     //1: Filter by ID;
     if (opt == 1)
     {
@@ -249,7 +247,7 @@ void patient::getDetails(int rec)
 }
 void patient::getDetailsFromHistory()
 {
-    system("clear");
+    
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by Name\n[2]: Filter by Mobile Number\n\n";
     cin >> opt;
@@ -368,7 +366,7 @@ void patient::getDetailsFromHistory()
 }
 void patient::hospitalize()
 {
-    system("clear");
+    
     cout << "\nSearch for the patient.\n";
     getDetails();
     if (id == -1)
@@ -411,7 +409,7 @@ void patient::hospitalize()
 }
 void patient::reportADeath()
 {
-    system("clear");
+    
     cout << "\nSearch for the patient.\n";
     getDetails();
     if (id == -1)

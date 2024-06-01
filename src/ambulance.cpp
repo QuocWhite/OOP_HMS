@@ -71,7 +71,6 @@ void ambulance::saveMap()
 }
 void ambulance::addAmbulance()
 {
-    system("clear");
     if (hospital::ambulancesList.size() == hospital::ambulancesLimit)
     {
         cout<<"\n\nAmbulances limit reached, can't add more!\n\n";
@@ -103,7 +102,6 @@ void ambulance::addAmbulance()
 }
 void ambulance::printDetails()
 {
-    system("clear");
     if (id == -1)
         return;
     cout << "Details:\n";
@@ -123,7 +121,6 @@ void ambulance::printDetails()
 }
 void ambulance::printDetailsFromHistory(string extraDetails)
 {
-    system("clear");
     if (id == -1)
         return;
     if (extraDetails == "")
@@ -160,7 +157,6 @@ void ambulance::printDetailsFromHistory(string extraDetails)
 }
 void ambulance::getDetails(int rec)
 {
-    system("clear");
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by ID\n[2]: Filter by Model\n[3]: Filter by Vehicle Reg. Number\n\n";
     cin >> opt;
@@ -169,7 +165,6 @@ void ambulance::getDetails(int rec)
     //1: Filter by ID;
     if (opt == 1)
     {
-        system("clear");
         int reqId;
         cout << "\nEnter ID:\n";
         cin >> reqId;
@@ -181,7 +176,6 @@ void ambulance::getDetails(int rec)
     //2: Filter by model;
     else if (opt == 2)
     {
-        system("clear");
         string reqModel;
         cout << "Model:\n";
         getline(cin >> ws, reqModel);
@@ -200,7 +194,6 @@ void ambulance::getDetails(int rec)
         {
             do
             {
-                system("clear");
                 int reqId;
                 cout << "\nEnter the ID of the required ambulance: ";
                 cin >> reqId;
@@ -219,7 +212,7 @@ void ambulance::getDetails(int rec)
     //3: Filter by vehicle reg. number;
     else if (opt == 3)
     {
-        system("clear");
+        
         string reqVnumber;
         cout << "Enter the vehicle reg. number of ambulance required:\n";
         getline(cin >> ws, reqVnumber);
@@ -240,7 +233,7 @@ void ambulance::getDetails(int rec)
 }
 void ambulance::getDetailsFromHistory()
 {
-    system("clear");
+    
     int opt = 0;
     cout << "\nOPTIONS:\n[1]: Filter by model\n[2]: Filter by vehicle reg. number\n\n";
     cin >> opt;
@@ -250,7 +243,7 @@ void ambulance::getDetailsFromHistory()
     //1: Filter by name;
     if (opt == 1)
     {
-        system("clear");
+        
         string reqModel;
         cout << "Model:\n";
         getline(cin >> ws, reqModel);
@@ -292,7 +285,7 @@ void ambulance::getDetailsFromHistory()
     //2: Filter by Vnumber;
     else if (opt == 2)
     {
-        system("clear");
+        
         string reqVnumber;
         cout << "Enter the vehicle reg. number of ambulance required:\n";
         getline(cin >> ws, reqVnumber);
@@ -331,7 +324,7 @@ void ambulance::getDetailsFromHistory()
 }
 void ambulance::send()
 {
-    system("clear");
+    
 
     //*************picking an idle ambulance*************;
 
@@ -386,7 +379,7 @@ void ambulance::send()
 }
 void ambulance::reportArrival()
 {
-    system("clear");
+    
     getDetails();
 
     //updating status of driver;
@@ -405,7 +398,7 @@ void ambulance::reportArrival()
 }
 void ambulance::removeAmbulance()
 {
-    system("clear");
+    
     cout << "\nSearch for the ambulance you want to remove.\n";
     getDetails();
     if (id == -1)

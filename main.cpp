@@ -71,17 +71,20 @@ void appointmentsMenu()
 
         if (purpose == 1)
         {
+            system("clear");
             appointment a;
             a.book();
         }
         else if (purpose == 2)
         {
+            system("clear");
             appointment a;
             a.getDetails();
             a.printDetails();
         }
         else if (purpose == 3)
         {
+            system("clear");
             hospital::printAppointments();
         }
         else if (purpose == 0)
@@ -144,37 +147,44 @@ void patientsMenu()
 
         if (purpose == 1)
         {
+            system("clear");
             patient p;
             p.adduser();
         }
         else if (purpose == 2)
         {
+            system("clear");
             patient p;
             p.getDetails(1);
             p.printDetails();
         }
         else if (purpose == 3)
         {
+            system("clear");
             patient p;
             p.hospitalize();
         }
         else if (purpose == 4)
         {
+            system("clear");
             patient p;
             p.reportADeath();
         }
         else if (purpose == 5)
         {
+            system("clear");
             patient p;
             p.removeuser();
         }
         else if (purpose == 6)
         {
+            system("clear");
             patient p;
             p.getDetailsFromHistory();
         }
         else if (purpose == 7)
         {
+            system("clear");
             hospital::printPatients();
         }
         else if (purpose == 0)
@@ -235,27 +245,32 @@ void doctorsMenu()
 
         if (purpose == 1)
         {
+            system("clear");
             doctor d;
             d.adduser();
         }
         else if (purpose == 2)
         {
+            system("clear");
             doctor d;
             d.getDetails(1);
             d.printDetails();
         }
         else if (purpose == 3)
         {
+            system("clear");
             doctor d;
             d.removeuser();
         }
         else if (purpose == 4)
         {
+            system("clear");
             doctor d;
             d.getDetailsFromHistory();
         }
         else if (purpose == 5)
         {
+            system("clear");
             hospital::printDoctors();
         }
         else if (purpose == 0)
@@ -291,7 +306,7 @@ void nursesMenu()
     bool exit = false;
     while (!exit)
     {
-        int purpose = 0;
+        int purpose;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime(); // Function to get the current time
 
@@ -315,27 +330,32 @@ void nursesMenu()
 
         if (purpose == 1)
         {
+            system("clear");
             nurse n;
             n.adduser();
         }
         else if (purpose == 2)
         {
+            system("clear");
             nurse n;
             n.getDetails(1);
             n.printDetails();
         }
         else if (purpose == 3)
         {
+            system("clear");
             nurse n;
             n.removeuser();
         }
         else if (purpose == 4)
         {
+            system("clear");
             nurse n;
             n.getDetailsFromHistory();
         }
         else if (purpose == 5)
         {
+            system("clear");
             hospital::printNurses();
         }
         else if (purpose == 0)
@@ -395,27 +415,32 @@ void driversMenu()
 
         if (purpose == 1)
         {
+            system("clear");
             driver d;
             d.adduser();
         }
         else if (purpose == 2)
         {
+            system("clear");
             driver d;
             d.getDetails(1);
             d.printDetails();
         }
         else if (purpose == 3)
         {
+            system("clear");
             driver d;
             d.removeuser();
         }
         else if (purpose == 4)
         {
+            system("clear");
             driver d;
             d.getDetailsFromHistory();
         }
         else if (purpose == 5)
         {
+            system("clear");
             hospital::printDrivers();
         }
         else if (purpose == 0)
@@ -478,37 +503,44 @@ void ambulancesMenu()
 
         if (purpose == 1)
         {
+            system("clear");
             ambulance a;
             a.addAmbulance();
         }
         else if (purpose == 2)
         {
+            system("clear");
             ambulance a;
             a.send();
         }
         else if (purpose == 3)
         {
+            system("clear");
             ambulance a;
             a.getDetails(1);
             a.printDetails();
         }
         else if (purpose == 4)
         {
+            system("clear");
             ambulance a;
             a.reportArrival();
         }
         else if (purpose == 5)
         {
+            system("clear");
             ambulance a;
             a.removeAmbulance();
         }
         else if (purpose == 6)
         {
+            system("clear");
             ambulance a;
             a.getDetailsFromHistory();
         }
         else if (purpose == 7)
         {
+            system("clear");
             hospital::printAmbulances();
         }
         else if (purpose == 0)
@@ -590,26 +622,32 @@ int main()
         }
         else if (category == 1)
         {
+            system("clear");
             appointmentsMenu();
         }
         else if (category == 2)
         {
+            system("clear");
             patientsMenu();
         }
         else if (category == 3)
         {
+            system("clear");
             doctorsMenu();
         }
         else if (category == 4)
         {
+            system("clear");
             nursesMenu();
         }
         else if (category == 5)
         {
+            system("clear");
             driversMenu();
         }
         else if (category == 6)
         {
+            system("clear");
             ambulancesMenu();
         }
         else

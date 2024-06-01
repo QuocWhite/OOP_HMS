@@ -15,7 +15,7 @@ user::user()
 {
     id = -1;
 }
-void user::adduser(int16_t minAge, int16_t maxAge)
+void user::adduser(int minAge, int maxAge)
 {
     //getting basic details of the user from the user side;
     cout << "\nEnter First name:\n";
@@ -26,26 +26,10 @@ void user::adduser(int16_t minAge, int16_t maxAge)
 // Function to validate user's agewhile (age <= 0)
     cout << "\nEnter age: \n";
     cin >> age;
-    while (cin.fail() || age < 0){
+    while (cin.fail() || age < 0 || age > maxAge || age < minAge){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Was that supposed to make any kind of sense?\nEnter again!\n", cin >> age;
-    
-    while(age > minAge && age < maxAge){
-        if (age < minAge){
-            cout << "Sorry, person should be at least " << minAge 
-            << " years old to be registered as a " << cat << ".\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "\nEnter again!\n", cin >> age;
-        }
-        else if (age > maxAge){
-            cout << "Sorry, we can't register a person older than " << maxAge << " years as a " << cat << ".\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Was that supposed to make any kind of sense?\nEnter again!\n", cin >> age;
-        }
-    }
     }
 
 
@@ -70,10 +54,11 @@ void user::printDetails()
     cout << "Gender             : " << gender << "\n";
     cout << "Age                : " << age << "\n";
     cout << "Mobile             : " << mobNumber << "\n";
-    cout << "Address            : \n";
+    cout << "Address            : ";
     add.print();
     return;
 }
+
 void user::printDetailsFromHistory()
 {
     if (id == -1)

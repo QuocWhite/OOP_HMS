@@ -30,10 +30,7 @@ void address::takeInput()
 }
 void address::print()
 {
-    cout << "Street             : " << street << "\n";
-    cout << "District           : " << district << "\n";
-    cout << "City               : " << city << "\n";
-    cout << "Country            : " << country << "\n";
+    cout << street << district <<  city << country << "\n";
     return;
 }
 string address::addToStr()
