@@ -1,5 +1,5 @@
 doctorId,firstName,lastName,gender,age,mobNumber,address,type,appointmentsBooked
-1,Long,Le,m,45,045865844,Mi Dinh  Hanoi Vietnam                              ,General,0
-2,Ba,Long,m,46,0348458325,Cau Giay  Hanoi Vietnam                              ,Heart,0
-3,Hong,Anh,m,12,0483727436773,Ho Tung Mau Cau Giay Hanoi Vietnam            ,General,0
-4,Hai,Dang,m,32,084737382,Tran Hung Dao Cau Giay Hanoi Viet Nam   ,Lung,0
+1,Long,Le,m,45,045865844,Mi Dinh  Hanoi Vietnam                                                      ,General,0
+2,Ba,Long,m,46,0348458325,Cau Giay  Hanoi Vietnam                                                      ,Heart,0
+3,Hong,Anh,m,12,0483727436773,Ho Tung Mau Cau Giay Hanoi Vietnam                                    ,General,0
+4,Hai,Dang,m,32,084737382,Tran Hung Dao Cau Giay Hanoi Viet Nam                           ,Lung,0

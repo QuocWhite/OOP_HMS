@@ -1,9 +1,9 @@
 patientId,firstName,lastName,gender,age,mobNumber,address,height,weight,wasHospitalized?,stillAlive(ifHospitalized)?
-1,Quoc,Dang,m,643,04857473463,Nguyen Tuan Cau Giay Hanoi Vietnam                                                ,854,43,Y,Y
-2,Dang,Huu,f,200,04822838437,Hoang Hoa Tham Cau Giay Hanoi Viatnam                                                ,843,30,Y,Y
-3,Dang Hong,Bao,M,1345,0384736251,Ho Tung Mau Cau Giay Hanoi Viet Nam                                             ,854,68,N,Y
-4,Quoc,Dang,m,23,0949848384,Vo Chi Cong Tay Ho  Hanoi Vietnam                                          ,875,43,N,Y
-5,Dang Van,Quoc,m,342,032487232323,Nguyen Khanh Toan Cau Giay Hanoi Vietnam                                 ,87,98,N,Y
-6,Nguyen Thi ,Phuong Hien,m,654,03998948392,Cau Giay Long Bien Ha Noi VietnAM                              ,875,34,N,Y
-7,Quoc,Dang,m,12,03489242448,Hue Hai Ba Trung Hanoi Vietnam         ,887,60,N,Y
-8,Hai,Dang,m,200,048478837,Nguyen Phong Sac Cau Giay Hanoi Vietnam      ,854,58,N,Y
+1,Quoc,Dang,m,643,04857473463,Nguyen Tuan Cau Giay Hanoi Vietnam                                                                        ,854,43,Y,Y
+2,Dang,Huu,f,200,04822838437,Hoang Hoa Tham Cau Giay Hanoi Viatnam                                                                        ,843,30,Y,Y
+3,Dang Hong,Bao,M,1345,0384736251,Ho Tung Mau Cau Giay Hanoi Viet Nam                                                                     ,854,68,N,Y
+4,Quoc,Dang,m,23,0949848384,Vo Chi Cong Tay Ho  Hanoi Vietnam                                                                  ,875,43,N,Y
+5,Dang Van,Quoc,m,342,032487232323,Nguyen Khanh Toan Cau Giay Hanoi Vietnam                                                         ,87,98,N,Y
+6,Nguyen Thi ,Phuong Hien,m,654,03998948392,Cau Giay Long Bien Ha Noi VietnAM                                                      ,875,34,N,Y
+7,Quoc,Dang,m,12,03489242448,Hue Hai Ba Trung Hanoi Vietnam                                 ,887,60,N,Y
+8,Hai,Dang,m,200,048478837,Nguyen Phong Sac Cau Giay Hanoi Vietnam                              ,854,58,N,Y

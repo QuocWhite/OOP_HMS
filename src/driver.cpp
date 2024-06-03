@@ -237,7 +237,6 @@ void driver::getDetailsFromHistory()
     //1: Filter by name;
     if (opt == 1)
     {
-        system("clear");
         string reqFName, reqLName;
         cout << "First Name:\n";
         getline(cin >> ws, reqFName);
@@ -331,7 +330,6 @@ void driver::getDetailsFromHistory()
 }
 void driver::removeuser()
 {
-    system("clear");
     cout << "\nSearch for the driver you want to remove.\n";
     getDetails();
     if (id == -1)

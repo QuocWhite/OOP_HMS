@@ -20,6 +20,7 @@ protected:
 
 public:
     user();
+    void getCurrentTime();
     virtual void fillMap() = 0;
     virtual void saveMap() = 0;
     virtual void adduser(int minAge, int maxAge);

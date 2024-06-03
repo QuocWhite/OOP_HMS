@@ -6,6 +6,7 @@
 #include <ios>    //used to get stream size
 #include <limits> //used to get numeric limits
 #include <ctime> // used to get the current time and date
+#include <cstring>
 using namespace std;
 
 #include "./include/global.h"
@@ -50,7 +51,7 @@ void appointmentsMenu()
     while (!exit)
     {
         int purpose = 0;
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime();
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -121,7 +122,7 @@ void patientsMenu()
     while (!exit)
     {
         int purpose = 0;
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime(); // Function to get the current time
 
 
@@ -221,7 +222,7 @@ void doctorsMenu()
     while (!exit)
     {
         int purpose = 0;
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime(); // Function to get the current time
 
 
@@ -307,7 +308,7 @@ void nursesMenu()
     while (!exit)
     {
         int purpose;
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime(); // Function to get the current time
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -392,7 +393,7 @@ void driversMenu()
     while (!exit)
     {
         int purpose = 0;
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime(); 
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -477,7 +478,7 @@ void ambulancesMenu()
     while (!exit)
     {
         int purpose = 0;
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime(); // Function to get the current time
 
 
@@ -569,6 +570,44 @@ void ambulancesMenu()
     return;
 }
 
+
+void login(){
+    system("clear");
+    string user;
+    char const *password;
+    char const *pass= "password";
+    int count = 0;
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    getCurrentTime();
+    cout << "\tLogin\n";
+    cout << "Enter user name: ";
+    getline(cin, user);
+    while (count < 5){
+        cout << "\n";
+        password = getpass("Enter password: ");
+        
+        cout << "\n";
+        if (strcmp(password,pass)==0){
+            cout << "Login successful";
+            cout << "Welcome " << user << " to Hospital!!!";
+            cout << "Please wait ";
+            break;
+        }
+         else
+        {
+            cout << "Invalid password. Please try again.\n" << '\n';
+            count++;
+        }
+    }
+    if (count == 5)
+    {
+        cout << "Too many login attempts! The program will be exit.";
+        exit(0);
+    }
+
+    cout << "Thank you for login.\n";
+}
+
 int main()
 {
     {
@@ -585,12 +624,12 @@ int main()
         a1.fillMap();
         a2.fillMap();
     }
+    login();
     while (1)
     {
         system("clear");
         int category = 0;
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-        // cout << "\nSelect a category:\n\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime();
 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -611,13 +650,13 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Your choice should be a number.\nEnter again!\n", cin >> category;
         }
-        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+        cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         cout << "\n";
         if (category == 0)
         {
-            cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+            cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
             cout << "\nShutting Down System...\n";
-            cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+            cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
             break;
         }
         else if (category == 1)
