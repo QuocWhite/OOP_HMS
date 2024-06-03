@@ -1,9 +1,9 @@
 ambulanceId,model,manufacturer,Vnumber,idle?,headedTowards(ifNotIdle),driverID(ifNotIdle)
 1,Transit,Ford,222090910, ,West,1
 2,Transit,Ford,222090022, ,West,2
-3,Transit	Ford,222090213, ,West,3
-4,Transit	Ford,222090456, ,West,4
-5,Transit	Ford,222090847, ,West,5
+3,Transit,Ford,222090213, ,West,3
+4,Transit,Ford,222090456, ,West,4
+5,Transit,Ford,222090847, ,West,5
 6,Transit,Ford,222090987, ,West,6
 7,Transit,Ford,222090312, ,West	7
 8,Starex,HuynDai,222090845, ,North,8
