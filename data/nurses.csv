@@ -1,21 +1,21 @@
 nurseId,firstName,lastName,gender,age,mobNumber,address,type
-1, Trang,Hoang Thu,F,25,0987338704,Tu co Yen Khanh Nam Dinh Viet Nam,general nursing
-2,Ngoc,Nguyen Bich,F,25,0988280134,3 Cau Buou Thanh Tri Ha Noi,Registered Nurses (RNs)
-3,Trang,Nguyen Thi Ha,F,34,0988239010,24 Ta Thanh Oai, Thanh Tri, Ha Noi	Registered Nurses (RNs)
-4,Bich,Pham Ngoc,F,26,0913676123,13 Kien Hung Ha Dong Ha Noi,Spcialty Nurses
-5,Thuy,Nguyen Thi,F,,27,0924512645,381 Quang Trung, Ha Dong, Ha Noi,Specialty Nurses
-6,Diep,Le Ngoc,F,26,0391487182,67 Son Dong Hoai Duc Ha Noi,Specialty Nurses
-7,Giang,Dao Huong,F,28,0912312445,24 Lung Kinh Hoai Du, Ha Noi,Specialty Nurses
-8,Nhung,Nguyen Hong,F,29,0924222144,74 Trung Kien, Bac Tu Liem Ha Noi,Specialty Nurses
-9,Yen,Le Hai,F,25,0912311424,43 Thang Long Nghi Lien  Nghe An,Nurse Managers
-10,Huy,Dinh Cong,M,27,0977242111,7 Nguyen Trai Quan Bau Nghe An,Nurse Managers
-11,Khang,Dao The,M,31,0988221112,56 Vu Trong Phung Thanh Xuan  Ha Noi,Nurse Managers
-12,Minh,Nguyen Van,M,33,0927174617,Trung Kien  Bac Tu Liem Ha Noi,Nurse Managers
-13,Duc,Pham Minh,M,34,0921351774,Ta Thanh Oai Thanh Tri Ha Noi,Advanced Practice Registered Nurses (APRNs)
-14,Hoa,Le Thi,F,27,0922662212,Cau Buou Thanh Tri Ha Noi	Advanced Practice Registered Nurses (APRNs)
-15,Hien,Le Minh,F,28,0921761644,Son Dong Hoai Duc Ha Noi	,Nurse Educators
-16,Hanh,Nguyen Hong,F,27,0921231777,Thang Long Nghi Lien Nghe An,Nurse Educators
-17,Thinh,Le Hong,M,26,0912361711,Quang Trung Ha Dong Ha Noi,Nurse Educators
-18,Bang,Le Cong,M,34,0912311124,Ta Thanh Oai Thanh Tri Ha Noi,Nurse Researchers
-19,Bao,Pham Gia,M	33,0946274221,Kien Hung Ha Dong Ha Noi,Nurse Researchers
-20,Hieu,Nguyen Minh,M,32,0912345466,Vu Trong Phung Thanh Xuan  Ha Noi,Nurse Researchers
+1, Trang,Hoang Thu,F,25,0987338704,Tu co Yen Khanh Nam Dinh Viet Nam                                 ,general nursing
+2,Ngoc,Nguyen Bich,F,25,0988280134,3 Cau Buou Thanh Tri Ha Noi                                 ,Registered Nurses (RNs)
+3,Trang,Nguyen Thi Ha,F,34,0988239010,24 Ta Thanh Oai                                 , Thanh Tri
+4,Bich,Pham Ngoc,F,26,0913676123,13 Kien Hung Ha Dong Ha Noi                                 ,Spcialty Nurses
+5,Thuy,Nguyen Thi,F,0,27,0924512645                                 ,381 Quang Trung
+6,Diep,Le Ngoc,F,26,0391487182,67 Son Dong Hoai Duc Ha Noi                                 ,Specialty Nurses
+7,Giang,Dao Huong,F,28,0912312445,24 Lung Kinh Hoai Du                                 , Ha Noi
+8,Nhung,Nguyen Hong,F,29,0924222144,74 Trung Kien                                 , Bac Tu Liem Ha Noi
+9,Yen,Le Hai,F,25,0912311424,43 Thang Long Nghi Lien  Nghe An                                 ,Nurse Managers
+10,Huy,Dinh Cong,M,27,0977242111,7 Nguyen Trai Quan Bau Nghe An                                 ,Nurse Managers
+11,Khang,Dao The,M,31,0988221112,56 Vu Trong Phung Thanh Xuan  Ha Noi                                 ,Nurse Managers
+12,Minh,Nguyen Van,M,33,0927174617,Trung Kien  Bac Tu Liem Ha Noi                                 ,Nurse Managers
+13,Duc,Pham Minh,M,34,0921351774,Ta Thanh Oai Thanh Tri Ha Noi                                 ,Advanced Practice Registered Nurses (APRNs)
+14,Hoa,Le Thi,F,27,0922662212,Cau Buou Thanh Tri Ha Noi	Advanced Practice Registered Nurses (APRNs)                                 ,
+15,Hien,Le Minh,F,28,0921761644,Son Dong Hoai Duc Ha Noi	                                 ,Nurse Educators
+16,Hanh,Nguyen Hong,F,27,0921231777,Thang Long Nghi Lien Nghe An                                 ,Nurse Educators
+17,Thinh,Le Hong,M,26,0912361711,Quang Trung Ha Dong Ha Noi                                 ,Nurse Educators
+18,Bang,Le Cong,M,34,0912311124,Ta Thanh Oai Thanh Tri Ha Noi                                 ,Nurse Researchers
+19,Bao,Pham Gia,M,-10639,Kien Hung Ha Dong Ha Noi,Nurse Researchers                                 ,
+20,Hieu,Nguyen Minh,M,32,0912345466,Vu Trong Phung Thanh Xuan  Ha Noi                                 ,Nurse Researchers

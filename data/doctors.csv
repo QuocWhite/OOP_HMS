@@ -1,24 +1,21 @@
 doctorId,firstName,lastName,gender,age,mobNumber,address,type,appointmentsBooked
-1,Long,Le,m,45,045865844,Mi Dinh  Hanoi Vietnam                                                      ,General,0
-2,Ba,Long,m,46,0348458325,Cau Giay  Hanoi Vietnam                                                      ,Heart,0
-3,Hong,Anh,m,12,0483727436773,Ho Tung Mau Cau Giay Hanoi Vietnam                                    ,General,0
-4,Hai,Dang,m,32,084737382,Tran Hung Dao Cau Giay Hanoi Viet Nam                           ,Lung,0
-2,Ba,Long,m,46,0348458325,Cau Giay  Hanoi Vietnam                                    ,Heart,0
-3,Hong,Anh,m,12,0483727436773,Ho Tung Mau Cau Giay Hanoi Vietnam                  ,General,0
-4,Hai,Dang,m,32,084737382,Tran Hung Dao Cau Giay Hanoi Viet Nam     ,Lung,0
-5,Thu,Nguyen,M,45,098756342,Nguyen Trai  Thanh Xuan  Ha Noi Viet Nam   ,surgery,0
-6,Tu,Tran,M,50,0332009478,Xuan Thuy Cau Giay  Ha Noi  Viet Nam    ,orthopedic surgery ,0
-7,Luong,Tran,F,43,033205917,Pham Hung  Cau Giay Ha Noi  Viet Nam    ,cardiology,0
-8,Van,Tran Thi,F,36,0329171588,Lang Dong D Ha Noi  Viet Nam ,traumatology ,0
-9,Thu,Ninh Thi,F,42,0332009414,Le Duc Tho  Cau Giay  Ha Noi  Viet Nam ,Dietetics ,0
-10,Nam,Nguyen Van,M,47,0973556784,Nguyen Trai  Thanh Xuan  Ha Noi  Viet Nam ,Geriatrics ,0
-11,Thuong,Vo Van ,M,60,0945678901,Nguy?n Hu? Qu?n 2 TP.HCM Vi?t Nam,Immunology,0
-12,Cuong,Ho Thi,M,65,0956789012,Hai Ba Trung Quan 7 Ha Noi Viet Nam,Gynecology,0
-13,Ngu,Dang Van,M,44,0967890123,Pham Ngu Lao Quan 4 Da Nang Viet Nam,Inpatient department,0
-14,Nga,Le Thi,F,36,0990123456,Le Duan Quan 8 Da Nang^ Viet Nam,Outpatient department,0
-15,Lam,Tran VanM,45,0989012345,Vo Van Kiet Quan 8 Da Nang Viet Nam,Odontology,0
-16,Phuong,Tran Thi,M,45,0966678901,Nguyen Xien Quan 4 Da Nang Viet Nam,Nephrology,0
-17,Hoang,Tran Van,M,56,0943345678,Nguyen Khuyen Quan 9 Da Nang Viet Nam,cardiology,0
-18,Van,Dang Thi,M,46,0998890123,Ton Duc Thang  Da Nang Viet Nam,Epidemiology,0
-19,Mai,Pham Thi,F,55,0988890123,Hoang Dieu Tay Ho Ha Noi Viet Nam ,Endocrinology,0
-20,Phuong,Vu Mai,F,34,033204567,Trinh Van Bo Nam Tu Liem Ha Noi Viet Nam ,Endocrinology,0
+1,Long,Le,m,45,045865844,Mi Dinh  Hanoi Vietnam                                                                                       ,General,0
+2,Ba,Long,m,46,0348458325,Cau Giay  Hanoi Vietnam                                                                     ,Heart,0
+3,Hong,Anh,m,12,0483727436773,Ho Tung Mau Cau Giay Hanoi Vietnam                                                   ,General,0
+4,Hai,Dang,m,32,084737382,Tran Hung Dao Cau Giay Hanoi Viet Nam                                      ,Lung,0
+5,Thu,Nguyen,M,45,098756342,Nguyen Trai  Thanh Xuan  Ha Noi Viet Nam                                    ,surgery,0
+6,Tu,Tran,M,50,0332009478,Xuan Thuy Cau Giay  Ha Noi  Viet Nam                                     ,orthopedic surgery ,0
+7,Luong,Tran,F,43,033205917,Pham Hung  Cau Giay Ha Noi  Viet Nam                                     ,cardiology,0
+8,Van,Tran Thi,F,36,0329171588,Lang Dong D Ha Noi  Viet Nam                                  ,traumatology ,0
+9,Thu,Ninh Thi,F,42,0332009414,Le Duc Tho  Cau Giay  Ha Noi  Viet Nam                                  ,Dietetics ,0
+10,Nam,Nguyen Van,M,47,0973556784,Nguyen Trai  Thanh Xuan  Ha Noi  Viet Nam                                  ,Geriatrics ,0
+11,Thuong,Vo Van ,M,60,0945678901,Nguy?n Hu? Qu?n 2 TP.HCM Vi?t Nam                                 ,Immunology,0
+12,Cuong,Ho Thi,M,65,0956789012,Hai Ba Trung Quan 7 Ha Noi Viet Nam                                 ,Gynecology,0
+13,Ngu,Dang Van,M,44,0967890123,Pham Ngu Lao Quan 4 Da Nang Viet Nam                                 ,Inpatient department,0
+14,Nga,Le Thi,F,36,0990123456,Le Duan Quan 8 Da Nang^ Viet Nam                                 ,Outpatient department,0
+15,Lam,Tran VanM,4,8569,Vo Van Kiet Quan 8 Da Nang Viet Nam,Odontology                                 ,0,0
+16,Phuong,Tran Thi,M,45,0966678901,Nguyen Xien Quan 4 Da Nang Viet Nam                                 ,Nephrology,0
+17,Hoang,Tran Van,M,56,0943345678,Nguyen Khuyen Quan 9 Da Nang Viet Nam                                 ,cardiology,0
+18,Van,Dang Thi,M,46,0998890123,Ton Duc Thang  Da Nang Viet Nam                                 ,Epidemiology,0
+19,Mai,Pham Thi,F,55,0988890123,Hoang Dieu Tay Ho Ha Noi Viet Nam                                  ,Endocrinology,0
+20,Phuong,Vu Mai,F,34,033204567,Trinh Van Bo Nam Tu Liem Ha Noi Viet Nam                                  ,Endocrinology,0

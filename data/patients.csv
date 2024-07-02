@@ -1,25 +1,23 @@
 patientId,firstName,lastName,gender,age,mobNumber,address,height,weight,wasHospitalized?,stillAlive(ifHospitalized)?
-1,Quoc,Dang,m,643,04857473463,Nguyen Tuan Cau Giay Hanoi Vietnam                                                                        ,854,43,Y,Y
-2,Dang,Huu,f,200,04822838437,Hoang Hoa Tham Cau Giay Hanoi Viatnam                                                                        ,843,30,Y,Y
-3,Bao,Dang Hong,M,1345,0384736251,Ho Tung Mau Cau Giay Hanoi Viet Nam                                                                     ,854,68,N,Y
-4,Quoc,Dang,m,23,0949848384,Vo Chi Cong Tay Ho  Hanoi Vietnam                                                                  ,875,43,N,Y
-5,Quoc,Dang Van,m,342,032487232323,Nguyen Khanh Toan Cau Giay Hanoi Vietnam                                                         ,87,98,N,Y
-6,Phuong Hien,Nguyen Thi,m,654,03998948392,Cau Giay Long Bien Ha Noi VietnAM                                                      ,875,34,N,Y
-7,Quoc,Dang,m,12,03489242448,Hue Hai Ba Trung Hanoi Vietnam                                 ,887,60,N,Y
-8,Hai,Dang,m,200,048478837,Nguyen Phong Sac Cau Giay Hanoi Vietnam                              ,854,58,N,Y
-9,Hai,Dang,m,200,048478837,Nguyen Phong Sac Cau Giay Hanoi Vietnam         ,854,58,N,Y
-10,The,Nguyen,M,20,0332009412,Yen ninh Y yen Nam Dinh Viet Nam     ,168,55,N,Y
-11,Thanh,Nguyen Van,m,50,033456788,To huu Ha Dong Ha Noi Viet Nam   ,170,60,N,Y
-12,Van,Tran Thi,F,28,087654326,Nguyen Tuan Cau Giay Hanoi Vietnam  ,155,45,y
-13,Nam,Nguyen Van,M,20,0955567890,12 Truong Chinh Quan 9 Ha Noi Viet Nam  ,167.67,N
-14,Tien,Le,M,35,038204005,Pham Van Dong Cau Giay  Ha Noi  Viet Nam  ,160,58,N,Y
-15,Vo,Le Thi,F,20,0922234567,Lac Long Quan Tay Ho Ha Noi Viet Nam ,178,45,N,Y
-16,The,Nguyen,M,20,0332009412,Nguyen Kha Trac Cau Giay Ha Noi Viet Nam    ,160,55,N,Y
-17,thanh,le,m,16,0366580914,Doan Ke thien Cau Giay  hA nOI Viet Nam ,155,46,N,Y
-18,Thanh,Nguyen Van,m,50,033456788,To huu Ha Dong Ha Noi Viet Nam ,170,60,N,Y
-19,Nam,Nguyen Hoang,M,22,039876554,s1 Hoa Lac Ha Noi Viet Nam ,167,55,N,Y
-20,Minh,Vo Thi,F,70,0987456234,Ninh thuong y yen nam dinh viet nam  , 155,50,Y,y
-21,Khanh,Phan Nam,M,20,0123456789,Au co Tay ho Ha Noi Viet Nam  , 160,60,Y,Y
-22,Tuan,Nguyen Anh,M,20,0456789123,le duan Tien Hai Thai Binh Viet Nam  ,  172,60,Y,Y
-
-
+1,Quoc,Dang,m,643,04857473463,Nguyen Tuan Cau Giay Hanoi Vietnam                                                                                                         ,854,43,Y,Y
+2,Dang,Huu,f,200,04822838437,Hoang Hoa Tham Cau Giay Hanoi Viatnam                                                                                                         ,843,30,Y,Y
+3,Bao,Dang Hong,M,1345,0384736251,Ho Tung Mau Cau Giay Hanoi Viet Nam                                                                                                      ,854,68,N,Y
+4,Quoc,Dang,m,23,0949848384,Vo Chi Cong Tay Ho  Hanoi Vietnam                                                                                                   ,875,43,N,Y
+5,Quoc,Dang Van,m,342,032487232323,Nguyen Khanh Toan Cau Giay Hanoi Vietnam                                                                                          ,87,98,N,Y
+6,Phuong Hien,Nguyen Thi,m,654,03998948392,Cau Giay Long Bien Ha Noi VietnAM                                                                                       ,875,34,N,Y
+7,Quoc,Dang,m,12,03489242448,Hue Hai Ba Trung Hanoi Vietnam                                                                  ,887,60,N,Y
+8,Hai,Dang,m,200,048478837,Nguyen Phong Sac Cau Giay Hanoi Vietnam                                                               ,854,58,N,Y
+9,Hai,Dang,m,200,048478837,Nguyen Phong Sac Cau Giay Hanoi Vietnam                                          ,854,58,N,Y
+10,The,Nguyen,M,20,0332009412,Yen ninh Y yen Nam Dinh Viet Nam                                      ,168,55,N,Y
+11,Thanh,Nguyen Van,m,50,033456788,To huu Ha Dong Ha Noi Viet Nam                                    ,170,60,N,Y
+12,Van,Tran Thi,F,28,087654326,Nguyen Tuan Cau Giay Hanoi Vietnam                                   ,155,45,N,N
+13,Nam,Nguyen Van,M,20,0955567890,12 Truong Chinh Quan 9 Ha Noi Viet Nam                                   ,166867,30,N,N
+14,Tien,Le,M,35,038204005,Pham Van Dong Cau Giay  Ha Noi  Viet Nam                                   ,160,58,N,Y
+15,Vo,Le Thi,F,20,0922234567,Lac Long Quan Tay Ho Ha Noi Viet Nam                                  ,178,45,N,Y
+16,The,Nguyen,M,20,0332009412,Nguyen Kha Trac Cau Giay Ha Noi Viet Nam                                     ,160,55,N,Y
+17,thanh,le,m,16,0366580914,Doan Ke thien Cau Giay  hA nOI Viet Nam                                  ,155,46,N,Y
+18,Thanh,Nguyen Van,m,50,033456788,To huu Ha Dong Ha Noi Viet Nam                                  ,170,60,N,Y
+19,Nam,Nguyen Hoang,M,22,039876554,s1 Hoa Lac Ha Noi Viet Nam                                  ,167,55,N,Y
+20,Minh,Vo Thi,F,70,0987456234,Ninh thuong y yen nam dinh viet nam                                   ,-1.33544e+09,50,Y,N
+21,Khanh,Phan Nam,M,20,0123456789,Au co Tay ho Ha Noi Viet Nam                                   ,-1.33544e+09,60,Y,Y
+22,Tuan,Nguyen Anh,M,20,0456789123,le duan Tien Hai Thai Binh Viet Nam                                   ,2.77009e+08,60,Y,Y

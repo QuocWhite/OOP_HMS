@@ -91,6 +91,7 @@ void appointmentsMenu()
         else if (purpose == 0)
         {
             exit = true;
+            system("clear");
             break;
         }
         else
@@ -191,6 +192,7 @@ void patientsMenu()
         else if (purpose == 0)
         {
             exit = true;
+            system("clear");
             break;
         }
         else
@@ -277,6 +279,7 @@ void doctorsMenu()
         else if (purpose == 0)
         {
             exit = true;
+            system("clear");
             break;
         }
         else
@@ -362,6 +365,7 @@ void nursesMenu()
         else if (purpose == 0)
         {
             exit = true;
+            system("clear");
             break;
         }
         else
@@ -447,6 +451,7 @@ void driversMenu()
         else if (purpose == 0)
         {
             exit = true;
+            system("clear");
             break;
         }
         else
@@ -547,6 +552,7 @@ void ambulancesMenu()
         else if (purpose == 0)
         {
             exit = true;
+            system("clear");
             break;
         }
         else
@@ -588,9 +594,13 @@ void login(){
         
         cout << "\n";
         if (strcmp(password,pass)==0){
-            cout << "Login successful";
-            cout << "Welcome " << user << " to Hospital!!!";
-            cout << "Please wait ";
+            cout << "Login successful ";
+            cout << "Welcome " << user << " to Hospital!!! ";
+            cout << "Please wait \n";
+            for(int i = 0; i < 3; i++){
+                sleep(1);
+            }
+            system("clear");
             break;
         }
          else
@@ -627,7 +637,6 @@ int main()
     login();
     while (1)
     {
-        system("clear");
         int category = 0;
         cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         getCurrentTime();

@@ -1,21 +1,21 @@
 ambulanceId,model,manufacturer,Vnumber,idle?,headedTowards(ifNotIdle),driverID(ifNotIdle)
-1,Transit,Ford,222090910, ,West,1
-2,Transit,Ford,222090022, ,West,2
-3,Transit,Ford,222090213, ,West,3
-4,Transit,Ford,222090456, ,West,4
-5,Transit,Ford,222090847, ,West,5
-6,Transit,Ford,222090987, ,West,6
-7,Transit,Ford,222090312, ,West	7
-8,Starex,HuynDai,222090845, ,North,8
-9,Starex,HuynDai,222090127, ,North,9
-10,Starex,HuynDai,222090145, ,North,10
-11,Starex,HuynDai,222090787, ,North,11
-12,Hiace,Toyota,222090034, ,North,12
-13,Hiace,Toyota,222090912, ,North,13
-14,Hiace,Toyota,222090198, ,South,14
-15,Hiace,Toyota,222090736, ,South,15
-16,Hiace,Toyota,222090924, ,South,16
-17,Hiace,Toyota,222090239, ,East,	
-18,Hiace,Toyota,222090006, ,East,	
-19,Hiace,Toyota,222090772, ,East,	
-20,Hiace,Toyota,222090775, ,East,
+1,Transit,Ford,222090910,N,West                                 ,1
+2,Transit,Ford,222090022,N,West                                 ,2
+3,Transit,Ford,222090213,N,West                                 ,3
+4,Transit,Ford,222090456,N,West                                 ,4
+5,Transit,Ford,222090847,N,West                                 ,5
+6,Transit,Ford,222090987,N,West                                 ,6
+7,Transit,Ford,222090312,N,West	7                                 ,1567694567
+8,Starex,HuynDai,222090845,N,North                                 ,8
+9,Starex,HuynDai,222090127,N,North                                 ,9
+10,Starex,HuynDai,222090145,N,North                                 ,10
+11,Starex,HuynDai,222090787,N,North                                 ,11
+12,Hiace,Toyota,222090034,N,North                                 ,12
+13,Hiace,Toyota,222090912,N,North                                 ,13
+14,Hiace,Toyota,222090198,N,South                                 ,14
+15,Hiace,Toyota,222090736,N,South                                 ,15
+16,Hiace,Toyota,222090924,N,South                                 ,16
+17,Hiace,Toyota,222090239,N,East                                 ,1567694567
+18,Hiace,Toyota,222090006,N,East                                 ,1567694567
+19,Hiace,Toyota,222090772,N,East                                 ,1567694567
+20,Hiace,Toyota,222090775,N,East                                 ,1567694567
